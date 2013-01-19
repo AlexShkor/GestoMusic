@@ -2,13 +2,13 @@ using System.IO;
 
 namespace GestoMusic
 {
-    public class SamplesFactory: ISamplesFactory
+    public class SamplesFactory
     {
         private const string BasePath = @"./Samples/new/";
 
         public Sample GetGitare()
         {
-            return new Sample(GetFullPath("Guitar.wav"));
+            return new Sample(GetFullPath("guitar_for_wave.wav"));
         }
 
         public Sample GetDrum()
@@ -36,11 +36,6 @@ namespace GestoMusic
             return new Sample(GetFullPath("r_hand.wav"));
         }
 
-        public Sample GetTube()
-        {
-            return new Sample(GetFullPath("808-clap.wav"));
-        }
-
         public Sample Wawe()
         {
             return new Sample(GetFullPath("guitar_for_wave.wav"));
@@ -55,13 +50,5 @@ namespace GestoMusic
         {
             return Path.GetFullPath(string.Format("{0}{1}", BasePath, path));
         }
-    }
-
-    public interface ISamplesFactory
-    {
-        Sample GetGitare();
-        Sample GetDrum();
-        Sample GetPlate();
-        Sample GetTube();
     }
 }

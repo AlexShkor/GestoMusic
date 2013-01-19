@@ -47,7 +47,10 @@ namespace GestoMusic
 
         public bool IsTracked { get; protected set; }
 
-        public Sample Sample { get; set; }
+        public Sample Sample
+        {
+            set { _continuesMusucPlayer.Sample = value; }
+        }
 
         private void Start()
         {
