@@ -21,7 +21,6 @@ namespace GestoMusic
             while (true)
             {
                 Thread.Sleep(100);
-                gesturesObserver.Update();
             }
         }
     }

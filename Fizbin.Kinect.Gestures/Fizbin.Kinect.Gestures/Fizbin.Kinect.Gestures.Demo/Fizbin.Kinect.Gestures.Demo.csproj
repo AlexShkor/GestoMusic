@@ -97,6 +97,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\GestoMusic\GestoMusic\GestoMusic.csproj">
+      <Project>{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}</Project>
+      <Name>GestoMusic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\KinectWpfViewers\Microsoft.Samples.Kinect.WpfViewers.csproj">
       <Project>{4DE23893-27E7-423F-9BB6-BA21DAC2C45E}</Project>
       <Name>Microsoft.Samples.Kinect.WpfViewers</Name>

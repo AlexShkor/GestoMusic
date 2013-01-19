@@ -8,6 +8,8 @@ namespace GestoMusic
     {
         private readonly Dictionary<GestureType, Sample> _getsturesActions = new Dictionary<GestureType, Sample>();
         private readonly GestureController _gestureController;
+        public event EventHandler<GestureSampleArgs> GestureSamplePlayed;
+
 
         public GesturesObserver()
         {
@@ -21,7 +23,18 @@ namespace GestoMusic
             {
                 var sample = _getsturesActions[e.GestureType];
                 sample.Play();
-                Console.WriteLine("{0} recognized. {1} is playing.", e.GestureType, sample);
+                var message = string.Format("{0} recognized. {1} is playing.", e.GestureType, sample);
+                if (this.GestureSamplePlayed != null)
+            {
+                this.GestureSamplePlayed(this, new GestureSampleArgs
+                    {
+                        GestureEventArgs = e,
+                        Sample = sample,
+                        Message = message
+                    });
+            }
+
+
             }
         }
 
@@ -29,11 +42,14 @@ namespace GestoMusic
         {
             _getsturesActions[rightHand] = sample;
         }
+    }
 
-        public void Update()
-        {
-            throw new NotImplementedException();
+    public class GestureSampleArgs : EventArgs
+    {
+        public GestureEventArgs GestureEventArgs { get; set; }
 
-        }
+        public Sample Sample { get; set; }
+
+        public string Message { get; set; }
     }
 }

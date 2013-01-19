@@ -47,7 +47,7 @@
     <Compile Include="SamplesFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures.csproj">
+    <ProjectReference Include="..\..\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures.csproj">
       <Project>{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}</Project>
       <Name>Fizbin.Kinect.Gestures</Name>
     </ProjectReference>

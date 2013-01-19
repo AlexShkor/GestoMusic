@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Data;
+using GestoMusic;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Samples.Kinect.WpfViewers;
@@ -77,8 +78,17 @@ namespace Fizbin.Kinect.Gestures.Demo
             kinectSensorManager.SkeletonStreamEnabled = true;
 
             // initialize the gesture recognizer
-            gestureController = new GestureController();
-            gestureController.GestureRecognized += OnGestureRecognized;
+            var gesturesObserver = new GesturesObserver();
+            var samplesFactory = new SamplesFactory();
+            var gitare = samplesFactory.GetGitare();
+            var plate = samplesFactory.GetGitare();
+            var tube = samplesFactory.GetGitare();
+            var drum = samplesFactory.GetGitare();
+            gesturesObserver.TrackGesture(GestureType.SwipeLeft, gitare);
+            gesturesObserver.TrackGesture(GestureType.SwipeRight, plate);
+            gesturesObserver.TrackGesture(GestureType.WaveLeft, tube);
+            gesturesObserver.TrackGesture(GestureType.WaveRight, drum);
+            gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
 
             kinectSensorManager.KinectSensorEnabled = true;
 
@@ -86,6 +96,11 @@ namespace Fizbin.Kinect.Gestures.Demo
             {
                 // addition configuration, as needed
             }
+        }
+
+        private void GestureSamplePlayed(object sender, GestureSampleArgs e)
+        {
+            Gesture = e.GestureEventArgs.GestureType.ToString();
         }
 
         /// <summary>
