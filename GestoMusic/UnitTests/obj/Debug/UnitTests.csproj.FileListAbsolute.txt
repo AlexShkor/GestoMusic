@@ -5,3 +5,16 @@ C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.f
 C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.dll
 C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.pdb
+c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\UnitTests.dll
+c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\UnitTests.pdb
+c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.framework.dll
+c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.framework.xml
+c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\ResolveAssemblyReference.cache
+c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.dll
+c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.pdb
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\UnitTests.dll
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\UnitTests.pdb
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.framework.dll
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.framework.xml
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.dll
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.pdb
