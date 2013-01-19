@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Fizbin.Kinect.Gestures;
 using Microsoft.Kinect;
 
@@ -14,9 +16,53 @@ namespace GestoMusic
             SkeletonAdjustment += (sender, args) =>
                 {
 
-                    Pitch = (args.Skeleton.Joints[JointType.WristLeft].Position.Y -
-                             args.Skeleton.Joints[JointType.WristRight].Position.Y) * Pitch;
+                    Pitch = (args.Skeleton.Joints[JointType.WristLeft].Position.X -
+                             args.Skeleton.Joints[JointType.WristRight].Position.X) * Pitch;
                 };
+        }
+
+        protected override ContinuesGestureResult GetActiveStatus(GestureType gestureType)
+        {
+            switch (gestureType)
+            {
+                case GestureType.DownHandLeft:
+                    _isLeftHandUp = false;
+                    break;
+                case GestureType.DownHandRigth:
+                    _isRightHandUp = false;
+                    break;
+                case GestureType.UpHandRight:
+                    _isRightHandUp = true;
+                    break;
+                case GestureType.UpHandLeft:
+                    _isLeftHandUp = true;
+                    break;
+                default:
+                    return ContinuesGestureResult.None;
+            }
+            if (_isLeftHandUp && _isRightHandUp)
+            {
+                if (IsTracked)
+                {
+                    return ContinuesGestureResult.None;
+                }
+                else
+                {
+                    return ContinuesGestureResult.Activate;
+                }
+            }
+            else
+            {
+                if (IsTracked)
+                {
+                    return ContinuesGestureResult.Deactivate;
+                }
+                else
+                {
+                    return ContinuesGestureResult.None;
+                }
+            }
+            return ContinuesGestureResult.None;
         }
 
     }
@@ -25,9 +71,21 @@ namespace GestoMusic
     {
         public const float PitchDetla = 0.6f;
 
+        protected IEnumerable<GestureType> Empty = Enumerable.Empty<GestureType>();
+        protected IEnumerable<GestureType> ExcludeList = Enumerable.Empty<GestureType>();
+ 
+
         public float Volume { get; set; }
         public float Pitch { get; set; }
         public float Speed { get; set; }
+
+        public IEnumerable<GestureType> ExcludeGesturesIfTracked
+        {
+            get
+            {
+                return !IsTracked ? Empty : ExcludeList;
+            }
+        }
 
         public GestureType ActivationGesture { get; set; }
         public GestureType DeactivationGesture { get; set; }
@@ -113,17 +171,14 @@ namespace GestoMusic
     {
         public void SetPitch(float pitch)
         {
-            throw new NotImplementedException();
         }
 
         public void Start()
         {
-            throw new NotImplementedException();
         }
 
         public void Pause()
         {
-            
 
         }
     }

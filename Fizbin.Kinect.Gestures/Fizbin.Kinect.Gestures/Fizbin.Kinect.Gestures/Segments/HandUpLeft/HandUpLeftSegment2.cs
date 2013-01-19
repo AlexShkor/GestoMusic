@@ -19,7 +19,7 @@ namespace Fizbin.Kinect.Gestures.Segments
             {
                 return GesturePartResult.Suceed;
             }
-            return GesturePartResult.Fail;
+            return GesturePartResult.Pausing;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Fizbin.Kinect.Gestures;
 using Microsoft.Kinect;
 
@@ -20,24 +21,26 @@ namespace GestoMusic
 
         private void OnGestureRecognized(object sender, GestureEventArgs e)
         {
-            if (_getsturesActions.ContainsKey(e.GestureType))
+            var excluelist = Enumerable.Empty<GestureType>();
+            foreach (var continuesGesture in _continuesGestures)
+            {
+                excluelist = excluelist.Concat(continuesGesture.ExcludeGesturesIfTracked);
+                continuesGesture.Update(e.GestureType);
+            }
+            if (_getsturesActions.ContainsKey(e.GestureType) && !excluelist.Contains(e.GestureType))
             {
                 var sample = _getsturesActions[e.GestureType];
                 sample.Play();
                 var message = string.Format("{0} recognized. {1} is playing.", e.GestureType, sample);
                 if (this.GestureSamplePlayed != null)
-            {
-                this.GestureSamplePlayed(this, new GestureSampleArgs
-                    {
-                        GestureEventArgs = e,
-                        Sample = sample,
-                        Message = message
-                    });
-            }
-            }
-            foreach (var continuesGesture in _continuesGestures)
-            {
-                continuesGesture.Update(e.GestureType);
+                {
+                    this.GestureSamplePlayed(this, new GestureSampleArgs
+                        {
+                            GestureEventArgs = e,
+                            Sample = sample,
+                            Message = message
+                        });
+                }
             }
         }
 

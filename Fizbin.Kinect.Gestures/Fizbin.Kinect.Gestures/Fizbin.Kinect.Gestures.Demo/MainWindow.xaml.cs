@@ -102,23 +102,25 @@ namespace Fizbin.Kinect.Gestures.Demo
             gesturesObserver.TrackDiscretGesture(GestureType.StepRight, drum);
             gesturesObserver.TrackDiscretGesture(GestureType.Head, drum);
 
-            float pitchDetla = 0.6f;
-            var s = new ContinuesGestureSettings
-                {
-                    ActivationGesture = GestureType.ZoomOut,
-                    DeactivationGesture = GestureType.ZoomIn,
+            gesturesObserver.TrackContinuesGesture(new HandUpContiniousGestureSettings(), gitare);
 
-                };
-            s.SkeletonAdjustment += (sender, args) =>
-                {
-                    var settings = (ContinuesGestureSettings)sender;
+            //float pitchDetla = 0.6f;
+            //var s = new ContinuesGestureSettings
+            //    {
+            //        ActivationGesture = GestureType.ZoomOut,
+            //        DeactivationGesture = GestureType.ZoomIn,
 
-                    settings.Pitch = (args.Skeleton.Joints[JointType.WristLeft].Position.Y -
-                                      args.Skeleton.Joints[JointType.WristRight].Position.Y) * pitchDetla;
-                };
-            gesturesObserver.TrackContinuesGesture(s, drum);
+            //    };
+            //s.SkeletonAdjustment += (sender, args) =>
+            //    {
+            //        var settings = (ContinuesGestureSettings)sender;
 
-            gesturesObserver.TrackGesture(GestureType.UpHandLeft, drum);
+            //        settings.Pitch = (args.Skeleton.Joints[JointType.WristLeft].Position.Y -
+            //                          args.Skeleton.Joints[JointType.WristRight].Position.Y) * pitchDetla;
+            //    };
+            //gesturesObserver.TrackContinuesGesture(s, drum);
+
+            gesturesObserver.TrackDiscretGesture(GestureType.UpHandLeft, drum);
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
 
             kinectSensorManager.KinectSensorEnabled = true;
