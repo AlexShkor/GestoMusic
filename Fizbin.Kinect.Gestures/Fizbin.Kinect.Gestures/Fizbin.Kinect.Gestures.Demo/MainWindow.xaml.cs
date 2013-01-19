@@ -82,8 +82,8 @@ namespace Fizbin.Kinect.Gestures.Demo
             var plate = samplesFactory.GetGitare();
             var tube = samplesFactory.GetGitare();
             var drum = samplesFactory.GetGitare();
-            gesturesObserver.TrackGesture(GestureType.SwipeLeft, gitare);
-            gesturesObserver.TrackGesture(GestureType.SwipeRight, plate);
+            gesturesObserver.TrackGesture(GestureType.HammerLeft, gitare);
+            gesturesObserver.TrackGesture(GestureType.HammerRight, plate);
             gesturesObserver.TrackGesture(GestureType.WaveLeft, tube);
             gesturesObserver.TrackGesture(GestureType.WaveRight, drum);
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;

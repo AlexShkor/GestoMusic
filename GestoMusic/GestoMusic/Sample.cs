@@ -1,30 +1,30 @@
 ﻿using System;
 using System.IO;
 using System.Media;
+using System.Security.AccessControl;
 
 namespace GestoMusic
 {
-    public class Sample : IDisposable
+    public class Sample
     {
         private readonly string _sample;
-        private readonly FileStream _audio;
 
         public Sample(string sample)
         {
             _sample = sample;
 
-            _audio = new FileStream(_sample, FileMode.Open);
+           
         }
 
         public void Play()
         {
+            using (var _audio = new FileStream(_sample, FileMode.Open,FileAccess.Read,FileShare.Read))
+            {
+                
             var player = new SoundPlayer(_audio);
             player.Play();
+            }
         }
 
-        public void Dispose()
-        {
-            _audio.Dispose();
-        }
     }
 }
