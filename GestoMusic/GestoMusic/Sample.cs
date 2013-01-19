@@ -15,7 +15,7 @@ namespace GestoMusic
             _player = new WindowsMediaPlayer();
         }
 
-        public void Play(double rate)
+        public void Play(double rate = 1d)
         {
             _player.URL = _sample;
             
