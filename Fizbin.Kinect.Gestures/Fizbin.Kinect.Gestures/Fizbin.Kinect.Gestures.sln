@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.Kinect.Wp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit", "..\Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj", "{C6F9C31B-6130-4443-A5CC-EF0664552ECD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestoMusic", "..\..\GestoMusic\GestoMusic\GestoMusic.csproj", "{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\..\GestoMusic\UnitTests\UnitTests.csproj", "{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,26 @@ Global
 		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C6F9C31B-6130-4443-A5CC-EF0664552ECD}.Release|x86.ActiveCfg = Release|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D693FEAE-6AD8-40B3-BEAB-B96455DA5448}.Release|x86.ActiveCfg = Release|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
