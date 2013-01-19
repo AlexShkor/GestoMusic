@@ -8,6 +8,8 @@ namespace GestoMusic
 {
     public class HandUpContiniousGestureSettings : ContinuesGestureSettings
     {
+
+        public const float PitchDetla = 0.6f;
         private bool _isRightHandUp = false;
         private bool _isLeftHandUp = false;
 
@@ -16,8 +18,8 @@ namespace GestoMusic
             SkeletonAdjustment += (sender, args) =>
                 {
 
-                    Pitch = (args.Skeleton.Joints[JointType.WristLeft].Position.X -
-                             args.Skeleton.Joints[JointType.WristRight].Position.X) * Pitch;
+                    Pitch = (0.4f - (args.Skeleton.Joints[JointType.WristLeft].Position.X -
+                             args.Skeleton.Joints[JointType.WristRight].Position.X) * PitchDetla);
                 };
         }
 
@@ -69,7 +71,6 @@ namespace GestoMusic
 
     public class ContinuesGestureSettings
     {
-        public const float PitchDetla = 0.6f;
 
         protected IEnumerable<GestureType> Empty = Enumerable.Empty<GestureType>();
         protected IEnumerable<GestureType> ExcludeList = Enumerable.Empty<GestureType>();

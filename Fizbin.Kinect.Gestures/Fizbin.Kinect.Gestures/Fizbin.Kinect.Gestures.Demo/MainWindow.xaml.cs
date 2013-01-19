@@ -104,22 +104,6 @@ namespace Fizbin.Kinect.Gestures.Demo
 
             gesturesObserver.TrackContinuesGesture(new HandUpContiniousGestureSettings(), gitare);
 
-            //float pitchDetla = 0.6f;
-            //var s = new ContinuesGestureSettings
-            //    {
-            //        ActivationGesture = GestureType.ZoomOut,
-            //        DeactivationGesture = GestureType.ZoomIn,
-
-            //    };
-            //s.SkeletonAdjustment += (sender, args) =>
-            //    {
-            //        var settings = (ContinuesGestureSettings)sender;
-
-            //        settings.Pitch = (args.Skeleton.Joints[JointType.WristLeft].Position.Y -
-            //                          args.Skeleton.Joints[JointType.WristRight].Position.Y) * pitchDetla;
-            //    };
-            //gesturesObserver.TrackContinuesGesture(s, drum);
-
             gesturesObserver.TrackDiscretGesture(GestureType.UpHandLeft, drum);
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
 
