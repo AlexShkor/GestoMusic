@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using JSNet;
 using NAudio.Wave;
 
 namespace TestNAudio
@@ -12,7 +11,6 @@ namespace TestNAudio
     {
         static void Main(string[] args)
         {
-            SuperPitch pitch = new SuperPitch(); 
             IWavePlayer waveOutDevice;
             WaveStream mainOutputStream;
             string fileName = @"C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\GestoMusic\Samples\Guitar.wav";
