@@ -65,7 +65,9 @@
     <Content Include="Samples\BossaNova.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Samples\Guitar.wav" />
+    <Content Include="Samples\Guitar.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Samples\guitar2cut11.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

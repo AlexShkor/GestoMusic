@@ -8,7 +8,7 @@ namespace GestoMusic
 
         public Sample GetGitare()
         {
-            return new Sample("./Samples/Guitar.wav");
+            return new Sample(GetFullPath("Guitar.wav"));
         }
 
         public Sample GetDrum()
