@@ -28,7 +28,7 @@ namespace Fizbin.Kinect.Gestures
             }
             AddGesture(GestureType.JoinedHands, joinedhandsSegments);
 
-            IRelativeGestureSegment[] menuSegments = new IRelativeGestureSegment[20];
+ /*           IRelativeGestureSegment[] menuSegments = new IRelativeGestureSegment[20];
             MenuSegment1 menuSegment = new MenuSegment1();
             for (int i = 0; i < 20; i++)
             {
@@ -82,16 +82,32 @@ namespace Fizbin.Kinect.Gestures
             zoomOutSegments[1] = new ZoomSegment2();
             zoomOutSegments[2] = new ZoomSegment1();
             AddGesture(GestureType.ZoomOut, zoomOutSegments);
+            */
 
-            IRelativeGestureSegment[] hammerSegmentsRight = new IRelativeGestureSegment[2];
-            hammerSegmentsRight[0] = new HammerRightSegment1();
-            hammerSegmentsRight[1] = new HammerRightSegment2();
-            AddGesture(GestureType.HammerRight, hammerSegmentsRight);
+            IRelativeGestureSegment[] hammerRightSegments = new IRelativeGestureSegment[2];
+            hammerRightSegments[0] = new HammerRightSegment1();
+            hammerRightSegments[1] = new HammerRightSegment2();
+            AddGesture(GestureType.HammerRight, hammerRightSegments);
 
-            IRelativeGestureSegment[] hammerSegmentsLeft = new IRelativeGestureSegment[2];
-            hammerSegmentsLeft[0] = new HammerLeftSegment1();
-            hammerSegmentsLeft[1] = new HammerLeftSegment2();
-            AddGesture(GestureType.HammerLeft, hammerSegmentsLeft);
+            IRelativeGestureSegment[] hammerLeftSegments = new IRelativeGestureSegment[2];
+            hammerLeftSegments[0] = new HammerLeftSegment1();
+            hammerLeftSegments[1] = new HammerLeftSegment2();
+            AddGesture(GestureType.HammerLeft, hammerLeftSegments);
+
+            IRelativeGestureSegment[] stepLeftSegments = new IRelativeGestureSegment[2];
+            stepLeftSegments[0] = new StepLeftSegment1();
+            stepLeftSegments[1] = new StepLeftSegment2();
+            AddGesture(GestureType.StepLeft, stepLeftSegments);
+
+            IRelativeGestureSegment[] stepRightSegments = new IRelativeGestureSegment[2];
+            stepRightSegments[0] = new StepRightSegment1();
+            stepRightSegments[1] = new StepRightSegment2();
+            AddGesture(GestureType.StepRight, stepRightSegments);
+
+            IRelativeGestureSegment[] headSegments = new IRelativeGestureSegment[2];
+            headSegments[0] = new HeadSegment1();
+            headSegments[1] = new HeadSegment2();
+            AddGesture(GestureType.Head, headSegments);
         }
 
         /// <summary>

@@ -15,11 +15,11 @@ namespace Fizbin.Kinect.Gestures.Segments
         public GesturePartResult CheckGesture(Skeleton skeleton)
         {
             // Left elbow higher than shoulder
-            if (skeleton.Joints[JointType.AnkleLeft].Position.Y > skeleton.Joints[JointType.AnkleRight].Position.Y)
+            if (skeleton.Joints[JointType.AnkleLeft].Position.Y - skeleton.Joints[JointType.AnkleRight].Position.Y > GestureParams.AnkleThresholdHigh)
             {
                 return GesturePartResult.Suceed;
             }            
-            return GesturePartResult.Fail;
+            return GesturePartResult.Pausing;
         }
     }
 }

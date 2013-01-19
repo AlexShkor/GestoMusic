@@ -9,3 +9,12 @@ C:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\GestoM
 C:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\GestoMusic.pdb
 C:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\Fizbin.Kinect.Gestures.dll
 C:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\Fizbin.Kinect.Gestures.pdb
+D:\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\Samples\808-clap.wav
+D:\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\Samples\Guitar.wav
+D:\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\GestoMusic.dll
+D:\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\GestoMusic.pdb
+D:\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\Fizbin.Kinect.Gestures.dll
+D:\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\Fizbin.Kinect.Gestures.pdb
+D:\GitHub\GestoMusic\GestoMusic\GestoMusic\obj\Debug\GestoMusic.csprojResolveAssemblyReference.cache
+D:\GitHub\GestoMusic\GestoMusic\GestoMusic\obj\Debug\GestoMusic.dll
+D:\GitHub\GestoMusic\GestoMusic\GestoMusic\obj\Debug\GestoMusic.pdb
