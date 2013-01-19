@@ -95,11 +95,9 @@ namespace Fizbin.Kinect.Gestures.Demo
             var gitare = samplesFactory.GetGitare();
             var plate = samplesFactory.GetGitare();
             var tube = samplesFactory.GetGitare();
-            var drum = samplesFactory.GetGitare();
-            gesturesObserver.TrackGesture(GestureType.HammerLeft, gitare);
-            gesturesObserver.TrackGesture(GestureType.HammerRight, plate);
-            gesturesObserver.TrackGesture(GestureType.WaveLeft, tube);
-            gesturesObserver.TrackGesture(GestureType.WaveRight, drum);
+            var drum = samplesFactory.GetDrum();
+            gesturesObserver.TrackGesture(GestureType.WaveLeft, drum);
+            gesturesObserver.TrackGesture(GestureType.WaveRight, gitare);
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
 
             kinectSensorManager.KinectSensorEnabled = true;
@@ -181,52 +179,7 @@ namespace Fizbin.Kinect.Gestures.Demo
 
         #region Event Handlers
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e">Gesture event arguments.</param>
-        private void OnGestureRecognized(object sender, GestureEventArgs e)
-        {
-            Debug.WriteLine(e.GestureType);
-
-            switch (e.GestureType)
-            {
-                case GestureType.Menu:
-                    Gesture = "Menu";
-                    break;
-                case GestureType.WaveRight:
-                    Gesture = "Wave Right";
-                    break;
-                case GestureType.WaveLeft:
-                    Gesture = "Wave Left";
-                    break;
-                case GestureType.JoinedHands:
-                    Gesture = "Joined Hands";
-                    break;
-                case GestureType.SwipeLeft:
-                    Gesture = "Swipe Left";
-                    break;
-                case GestureType.SwipeRight:
-                    Gesture = "Swipe Right";
-                    break;
-                case GestureType.ZoomIn:
-                    Gesture = "Zoom In";
-                    break;
-                case GestureType.ZoomOut:
-                    Gesture = "Zoom Out";
-                    break;
-                case GestureType.HammerRight:
-                    Gesture = "HammerRight";
-                    break;
-                case GestureType.HammerLeft:
-                    Gesture = "HammerLeft";
-                    break;
-                default:
-                    break;
-            }
-        }
-
+   
         /// <summary>
         /// 
         /// </summary>
