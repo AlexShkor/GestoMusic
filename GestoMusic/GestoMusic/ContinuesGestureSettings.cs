@@ -68,12 +68,14 @@ namespace GestoMusic
                     if (!IsTracked)
                     {
                         Start();
+                        IsTracked = true;
                     } 
                     break;
                 case ContinuesGestureResult.Deactivate:
                     if (IsTracked)
                     {
                         Pause();
+                        IsTracked = false;
                     }
                     break;
             }

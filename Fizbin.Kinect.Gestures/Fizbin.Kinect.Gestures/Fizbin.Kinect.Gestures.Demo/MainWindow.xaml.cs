@@ -101,8 +101,13 @@ namespace Fizbin.Kinect.Gestures.Demo
             gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, tube);
             gesturesObserver.TrackDiscretGesture(GestureType.StepRight, drum);
             gesturesObserver.TrackDiscretGesture(GestureType.Head, drum);
+            gesturesObserver.TrackDiscretGesture(GestureType.DownHandRight, drum);
+            gesturesObserver.TrackDiscretGesture(GestureType.UpHandRight, drum);
+            gesturesObserver.TrackDiscretGesture(GestureType.DownHandLeft, drum);
+            gesturesObserver.TrackDiscretGesture(GestureType.UpHandLeft, drum);
 
-            gesturesObserver.TrackContinuesGesture(new HandUpContiniousGestureSettings(), gitare);
+            _settings = new HandUpContiniousGestureSettings();
+            gesturesObserver.TrackContinuesGesture(_settings, gitare);
 
             gesturesObserver.TrackDiscretGesture(GestureType.UpHandLeft, drum);
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
@@ -154,6 +159,7 @@ namespace Fizbin.Kinect.Gestures.Demo
         private string _gesture;
 
         private GesturesObserver gesturesObserver;
+        private HandUpContiniousGestureSettings _settings;
 
         public String Gesture
         {
@@ -212,6 +218,8 @@ namespace Fizbin.Kinect.Gestures.Demo
                     if (skeleton.TrackingState != SkeletonTrackingState.Tracked)
                         continue;
 
+
+                    Gesture = _settings.Pitch.ToString();
                     //Gesture = Math.Abs(skeleton.Joints[JointType.WristRight].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y).ToString();
 
                     // update the gesture controller

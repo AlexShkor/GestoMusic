@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Fizbin.Kinect.Gestures;
 using Microsoft.Kinect;
@@ -23,8 +24,9 @@ namespace GestoMusic
             SkeletonAdjustment += (sender, args) =>
                 {
 
-                    Pitch = (0.4f - (args.Skeleton.Joints[JointType.WristLeft].Position.X -
-                                     args.Skeleton.Joints[JointType.WristRight].Position.X) * PitchDetla);
+                    var delta =Math.Abs (args.Skeleton.Joints[JointType.WristLeft].Position.X -
+                                 args.Skeleton.Joints[JointType.WristRight].Position.X);
+                    Pitch = Math.Min(( (delta -0.2f) /0.6f), 1f) - 0.5f;
                 };
         }
 
@@ -35,7 +37,7 @@ namespace GestoMusic
                 case GestureType.DownHandLeft:
                     _isLeftHandUp = false;
                     break;
-                case GestureType.DownHandRigth:
+                case GestureType.DownHandRight:
                     _isRightHandUp = false;
                     break;
                 case GestureType.UpHandRight:
