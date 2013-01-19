@@ -3,4 +3,5 @@
   <Module PersistentId="568213A5-1199-453F-9919-5E3BB091526A" ModuleId="Tests" />
   <Module PersistentId="5DF2C1FE-9704-4FBF-827D-EE80E1887B1E" ModuleId="UnitTests" />
   <Module PersistentId="FCF25A89-B492-4480-8EFD-399B7D2848A9" ModuleId="MusicPlayer" />
+  <Module PersistentId="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System" />
 </Modules>
