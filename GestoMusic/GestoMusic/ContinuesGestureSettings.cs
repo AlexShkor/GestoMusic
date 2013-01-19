@@ -6,70 +6,8 @@ using Microsoft.Kinect;
 
 namespace GestoMusic
 {
-    public class HandUpContiniousGestureSettings : ContinuesGestureSettings
-    {
-        private bool _isRightHandUp = false;
-        private bool _isLeftHandUp = false;
-
-        public HandUpContiniousGestureSettings()
-        {
-            SkeletonAdjustment += (sender, args) =>
-                {
-
-                    Pitch = (args.Skeleton.Joints[JointType.WristLeft].Position.X -
-                             args.Skeleton.Joints[JointType.WristRight].Position.X) * Pitch;
-                };
-        }
-
-        protected override ContinuesGestureResult GetActiveStatus(GestureType gestureType)
-        {
-            switch (gestureType)
-            {
-                case GestureType.DownHandLeft:
-                    _isLeftHandUp = false;
-                    break;
-                case GestureType.DownHandRigth:
-                    _isRightHandUp = false;
-                    break;
-                case GestureType.UpHandRight:
-                    _isRightHandUp = true;
-                    break;
-                case GestureType.UpHandLeft:
-                    _isLeftHandUp = true;
-                    break;
-                default:
-                    return ContinuesGestureResult.None;
-            }
-            if (_isLeftHandUp && _isRightHandUp)
-            {
-                if (IsTracked)
-                {
-                    return ContinuesGestureResult.None;
-                }
-                else
-                {
-                    return ContinuesGestureResult.Activate;
-                }
-            }
-            else
-            {
-                if (IsTracked)
-                {
-                    return ContinuesGestureResult.Deactivate;
-                }
-                else
-                {
-                    return ContinuesGestureResult.None;
-                }
-            }
-            return ContinuesGestureResult.None;
-        }
-
-    }
-
     public class ContinuesGestureSettings
     {
-        public const float PitchDetla = 0.6f;
 
         protected IEnumerable<GestureType> Empty = Enumerable.Empty<GestureType>();
         protected IEnumerable<GestureType> ExcludeList = Enumerable.Empty<GestureType>();
