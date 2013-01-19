@@ -96,12 +96,15 @@ namespace Fizbin.Kinect.Gestures.Demo
             var plate = samplesFactory.GetGitare();
             var tube = samplesFactory.GetGitare();
             var drum = samplesFactory.GetGitare();
+            var metronom = samplesFactory.GetMetronom();
             gesturesObserver.TrackGesture(GestureType.HammerLeft, gitare);
             gesturesObserver.TrackGesture(GestureType.HammerRight, plate);
             gesturesObserver.TrackGesture(GestureType.StepLeft, tube);
             gesturesObserver.TrackGesture(GestureType.StepRight, drum);
             gesturesObserver.TrackGesture(GestureType.Head, drum);
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
+
+            metronom.Play(1);
 
             kinectSensorManager.KinectSensorEnabled = true;
 

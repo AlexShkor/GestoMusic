@@ -8,27 +8,27 @@ namespace GestoMusic
 
         public Sample GetGitare()
         {
-            return new Sample(GetFullPath("GC001.wav"));
+            return new Sample(GetFullPath("guitar2cut11.mp3"));
         }
 
         public Sample GetDrum()
         {
-            return new Sample(GetFullPath("drum.wav"));
+            return new Sample(GetFullPath("hhopen.wav"));
         }
 
         public Sample GetPlate()
         {
-            return new Sample(GetFullPath("GPA007.wav"));
+            return new Sample(GetFullPath("ride1.wav"));
         }
 
         public Sample GetTube()
         {
-            return new Sample(GetFullPath("GPA005.wav"));
+            return new Sample(GetFullPath("808-clap.wav"));
         }
 
-        public Sample GetMusic()
+        public Sample GetMetronom()
         {
-            return new Sample(GetFullPath("Kalimba.mp3"));
+            return new Sample(GetFullPath("kalimba.mp3"));
         }
 
         private string GetFullPath(string path)
