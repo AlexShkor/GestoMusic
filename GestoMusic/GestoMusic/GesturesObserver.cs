@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Fizbin.Kinect.Gestures;
+using Microsoft.Kinect;
 
 namespace GestoMusic
 {
@@ -8,6 +9,8 @@ namespace GestoMusic
     {
         private readonly Dictionary<GestureType, Sample> _getsturesActions = new Dictionary<GestureType, Sample>();
         private readonly GestureController _gestureController;
+        public event EventHandler<GestureSampleArgs> GestureSamplePlayed;
+
 
         public GesturesObserver()
         {
@@ -21,8 +24,19 @@ namespace GestoMusic
             {
                 var sample = _getsturesActions[e.GestureType];
                 sample.Play(1);
-                Console.WriteLine("{0} recognized. {1} is playing.", e.GestureType, sample);
+                var message = string.Format("{0} recognized. {1} is playing.", e.GestureType, sample);
+                if (this.GestureSamplePlayed != null)
+            {
+                this.GestureSamplePlayed(this, new GestureSampleArgs
+                    {
+                        GestureEventArgs = e,
+                        Sample = sample,
+                        Message = message
+                    });
             }
+
+
+        }
         }
 
         public void TrackGesture(GestureType rightHand, Sample sample)
@@ -30,10 +44,9 @@ namespace GestoMusic
             _getsturesActions[rightHand] = sample;
         }
 
-        public void Update()
+        public void UpdateAllGestures(Skeleton skeleton)
         {
-            throw new NotImplementedException();
-
+            _gestureController.UpdateAllGestures(skeleton);
         }
     }
 }

@@ -1,15 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Media;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using WMPLib;
 
 namespace GestoMusic
 {
-    public class Sample : IDisposable
+    public class Sample
     {
         private readonly string _sample;
-        private readonly FileStream _audio;
 
         public Sample(string sample)
         {
@@ -18,14 +13,9 @@ namespace GestoMusic
 
         public void Play(double rate)
         {
-            var player = new WMPLib.WindowsMediaPlayer();
+            var player = new WindowsMediaPlayer();
             player.URL = _sample;
             player.settings.rate = rate;
-        }
-
-        public void Dispose()
-        {
-            _audio.Dispose();
         }
     }
 }

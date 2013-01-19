@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Data;
+using GestoMusic;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Samples.Kinect.WpfViewers;
@@ -18,8 +20,19 @@ namespace Fizbin.Kinect.Gestures.Demo
 
         private Skeleton[] skeletons = new Skeleton[0];
 
-        // skeleton gesture recognizer
-        private GestureController gestureController;
+        private ObservableCollection<string> _logs;
+        public ObservableCollection<string> Logs
+        {
+            get
+            {
+                if (_logs == null)
+                {
+                    _logs = new ObservableCollection<string>();
+                }
+                return _logs;
+            }
+        }
+
 
         public MainWindow()
         {
@@ -77,8 +90,17 @@ namespace Fizbin.Kinect.Gestures.Demo
             kinectSensorManager.SkeletonStreamEnabled = true;
 
             // initialize the gesture recognizer
-            gestureController = new GestureController();
-            gestureController.GestureRecognized += OnGestureRecognized;
+            gesturesObserver = new GesturesObserver();
+            var samplesFactory = new SamplesFactory();
+            var gitare = samplesFactory.GetGitare();
+            var plate = samplesFactory.GetGitare();
+            var tube = samplesFactory.GetGitare();
+            var drum = samplesFactory.GetGitare();
+            gesturesObserver.TrackGesture(GestureType.HammerLeft, gitare);
+            gesturesObserver.TrackGesture(GestureType.HammerRight, plate);
+            gesturesObserver.TrackGesture(GestureType.WaveLeft, tube);
+            gesturesObserver.TrackGesture(GestureType.WaveRight, drum);
+            gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
 
             kinectSensorManager.KinectSensorEnabled = true;
 
@@ -86,6 +108,13 @@ namespace Fizbin.Kinect.Gestures.Demo
             {
                 // addition configuration, as needed
             }
+        }
+
+        private void GestureSamplePlayed(object sender, GestureSampleArgs e)
+        {
+            var log = e.GestureEventArgs.GestureType.ToString();
+            Logs.Add(log);
+            Gesture = log;
         }
 
         /// <summary>
@@ -118,6 +147,9 @@ namespace Fizbin.Kinect.Gestures.Demo
         /// Gets or sets the last recognized gesture.
         /// </summary>
         private string _gesture;
+
+        private GesturesObserver gesturesObserver;
+
         public String Gesture
         {
             get { return _gesture; }
@@ -184,7 +216,12 @@ namespace Fizbin.Kinect.Gestures.Demo
                 case GestureType.ZoomOut:
                     Gesture = "Zoom Out";
                     break;
-
+                case GestureType.HammerRight:
+                    Gesture = "HammerRight";
+                    break;
+                case GestureType.HammerLeft:
+                    Gesture = "HammerLeft";
+                    break;
                 default:
                     break;
             }
@@ -215,8 +252,10 @@ namespace Fizbin.Kinect.Gestures.Demo
                     if (skeleton.TrackingState != SkeletonTrackingState.Tracked)
                         continue;
 
+                    //Gesture = Math.Abs(skeleton.Joints[JointType.WristRight].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y).ToString();
+                    
                     // update the gesture controller
-                    gestureController.UpdateAllGestures(skeleton);
+                    gesturesObserver.UpdateAllGestures(skeleton);
                 }
             }
         }

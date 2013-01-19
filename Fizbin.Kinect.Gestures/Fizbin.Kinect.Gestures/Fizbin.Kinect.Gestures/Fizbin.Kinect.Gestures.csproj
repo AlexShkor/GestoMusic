@@ -50,6 +50,10 @@
     <Compile Include="GestureEventArgs.cs" />
     <Compile Include="IRelativeGestureSegment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Segments\HammerLeft\HammerLeftSegment1.cs" />
+    <Compile Include="Segments\HammerLeft\HammerLeftSegment2.cs" />
+    <Compile Include="Segments\HammerRight\HammerRightSegment2.cs" />
+    <Compile Include="Segments\HammerRight\HammerRightSegment1.cs" />
     <Compile Include="Segments\JoinedHandsSegment.cs" />
     <Compile Include="Segments\Menu\MenuSegments.cs" />
     <Compile Include="Segments\SwipeLeft\SwipeLeftSegment1.cs" />
