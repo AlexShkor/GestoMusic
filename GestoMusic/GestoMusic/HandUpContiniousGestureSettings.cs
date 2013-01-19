@@ -35,7 +35,7 @@ namespace GestoMusic
                 case GestureType.DownHandLeft:
                     _isLeftHandUp = false;
                     break;
-                case GestureType.DownHandRigth:
+                case GestureType.DownHandRight:
                     _isRightHandUp = false;
                     break;
                 case GestureType.UpHandRight:
