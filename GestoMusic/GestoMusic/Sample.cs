@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Media;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace GestoMusic
 {
@@ -12,14 +14,13 @@ namespace GestoMusic
         public Sample(string sample)
         {
             _sample = sample;
-
-            _audio = new FileStream(_sample, FileMode.Open);
         }
 
-        public void Play()
+        public void Play(double rate)
         {
-            var player = new SoundPlayer(_audio);
-            player.Play();
+            var player = new WMPLib.WindowsMediaPlayer();
+            player.URL = _sample;
+            player.settings.rate = rate;
         }
 
         public void Dispose()

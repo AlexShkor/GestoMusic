@@ -18,10 +18,12 @@ namespace GestoMusic
             gesturesObserver.TrackGesture(GestureType.SwipeRight, plate);
             gesturesObserver.TrackGesture(GestureType.WaveLeft, tube);
             gesturesObserver.TrackGesture(GestureType.WaveRight, drum);
+
+            plate.Play(1);
+
             while (true)
             {
                 Thread.Sleep(100);
-                gesturesObserver.Update();
             }
         }
     }

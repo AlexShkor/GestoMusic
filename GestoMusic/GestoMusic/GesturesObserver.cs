@@ -20,7 +20,7 @@ namespace GestoMusic
             if (_getsturesActions.ContainsKey(e.GestureType))
             {
                 var sample = _getsturesActions[e.GestureType];
-                sample.Play();
+                sample.Play(1);
                 Console.WriteLine("{0} recognized. {1} is playing.", e.GestureType, sample);
             }
         }
