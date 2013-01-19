@@ -5,7 +5,7 @@ namespace Fizbin.Kinect.Gestures.Segments
     /// <summary>
     /// The second part of the swipe left gesture
     /// </summary>
-    public class HandUpLeftSegment1 : IRelativeGestureSegment
+    public class HandDownLeftSegment2 : IRelativeGestureSegment
     {
         /// <summary>
         /// Checks the gesture.

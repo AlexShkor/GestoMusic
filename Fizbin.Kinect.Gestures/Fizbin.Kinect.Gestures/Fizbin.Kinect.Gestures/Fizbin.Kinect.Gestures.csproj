@@ -55,6 +55,10 @@
     <Compile Include="Segments\HammerLeft\HammerLeftSegment2.cs" />
     <Compile Include="Segments\HammerRight\HammerRightSegment2.cs" />
     <Compile Include="Segments\HammerRight\HammerRightSegment1.cs" />
+    <Compile Include="Segments\HandDownLeft\HandDownLeftSegment1.cs" />
+    <Compile Include="Segments\HandDownLeft\HandDownLeftSegment2.cs" />
+    <Compile Include="Segments\HandDownRight\HandDownRightSegment1.cs" />
+    <Compile Include="Segments\HandDownRight\HandDownRightSegment2.cs" />
     <Compile Include="Segments\HandUpLeft\HandUpLeftSegment1.cs" />
     <Compile Include="Segments\HandUpLeft\HandUpLeftSegment2.cs" />
     <Compile Include="Segments\HandUpRight\HandUpRightSegment1.cs" />
@@ -77,10 +81,7 @@
     <Compile Include="Segments\WaveRightSegments.cs" />
     <Compile Include="Segments\ZoomSegments.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Segments\HandsDownLeft\" />
-    <Folder Include="Segments\HandsDownRight\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

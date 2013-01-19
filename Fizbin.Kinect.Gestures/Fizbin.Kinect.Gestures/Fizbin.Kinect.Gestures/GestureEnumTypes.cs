@@ -45,6 +45,9 @@ namespace Fizbin.Kinect.Gestures
         StepLeft,
         StepRight,
         Head,
-        UpHandLeft
+        UpHandLeft,
+        UpHandRight,
+        DownHandLeft,
+        DownHandRight
     }
 }

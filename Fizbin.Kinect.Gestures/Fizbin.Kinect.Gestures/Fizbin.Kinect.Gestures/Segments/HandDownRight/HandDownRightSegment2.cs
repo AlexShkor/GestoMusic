@@ -5,7 +5,7 @@ namespace Fizbin.Kinect.Gestures.Segments
     /// <summary>
     /// The second part of the swipe left gesture
     /// </summary>
-    public class HandUpLeftSegment1 : IRelativeGestureSegment
+    public class HandDownRightSegment2 : IRelativeGestureSegment
     {
         /// <summary>
         /// Checks the gesture.
@@ -15,7 +15,7 @@ namespace Fizbin.Kinect.Gestures.Segments
         public GesturePartResult CheckGesture(Skeleton skeleton)
         {
             // Left elbow higher than shoulder
-            if (skeleton.Joints[JointType.WristLeft].Position.Y < skeleton.Joints[JointType.Head].Position.Y)
+            if (skeleton.Joints[JointType.WristRight].Position.Y < skeleton.Joints[JointType.Head].Position.Y)
             {
                 return GesturePartResult.Suceed;
             }

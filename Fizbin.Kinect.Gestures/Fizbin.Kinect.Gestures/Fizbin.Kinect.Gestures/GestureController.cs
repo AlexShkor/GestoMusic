@@ -57,6 +57,21 @@ namespace Fizbin.Kinect.Gestures
             upHandLeftSegments[0] = new HandUpLeftSegment1();
             upHandLeftSegments[1] = new HandUpLeftSegment2();
             AddGesture(GestureType.UpHandLeft, upHandLeftSegments);
+
+            IRelativeGestureSegment[] upHandRightSegments = new IRelativeGestureSegment[2];
+            upHandRightSegments[0] = new HandUpRightSegment1();
+            upHandRightSegments[1] = new HandUpRightSegment2();
+            AddGesture(GestureType.UpHandRight, upHandRightSegments);
+
+            IRelativeGestureSegment[] downHandRightSegments = new IRelativeGestureSegment[2];
+            downHandRightSegments[0] = new HandDownRightSegment1();
+            downHandRightSegments[1] = new HandDownRightSegment2();
+            AddGesture(GestureType.DownHandRight, downHandRightSegments);
+
+            IRelativeGestureSegment[] downHandLeftSegments = new IRelativeGestureSegment[2];
+            downHandLeftSegments[0] = new HandDownLeftSegment1();
+            downHandLeftSegments[1] = new HandDownLeftSegment2();
+            AddGesture(GestureType.DownHandLeft, downHandLeftSegments);
         }
 
         /// <summary>
