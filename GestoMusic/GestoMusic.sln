@@ -5,6 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestoMusic", "GestoMusic\Ge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{5DF2C1FE-9704-4FBF-827D-EE80E1887B1E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{E4E7DBB2-A7C2-4E26-9EC5-71B48279C2CC}"
+	ProjectSection(SolutionItems) = preProject
+		Samples\808-clap.wav = Samples\808-clap.wav
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
