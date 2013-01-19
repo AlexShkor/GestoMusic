@@ -1,0 +1,4 @@
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\GestoMusic.dll
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\GestoMusic\bin\Debug\GestoMusic.pdb
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\GestoMusic\obj\Debug\GestoMusic.dll
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\GestoMusic\obj\Debug\GestoMusic.pdb

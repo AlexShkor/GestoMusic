@@ -1,0 +1,5 @@
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\MusicPlayer\bin\Debug\Samples\808-clap.wav
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\MusicPlayer\bin\Debug\MusicPlayer.exe
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\MusicPlayer\bin\Debug\MusicPlayer.pdb
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\MusicPlayer\obj\x86\Debug\MusicPlayer.exe
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\MusicPlayer\obj\x86\Debug\MusicPlayer.pdb

@@ -1,0 +1,7 @@
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\kuna\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.pdb
