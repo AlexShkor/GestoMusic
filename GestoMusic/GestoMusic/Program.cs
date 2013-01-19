@@ -14,10 +14,15 @@ namespace GestoMusic
             var plate = samplesFactory.GetGitare();
             var tube = samplesFactory.GetGitare();
             var drum = samplesFactory.GetGitare();
-            gesturesObserver.TrackDiscretGesture(GestureType.SwipeLeft, gitare);
-            gesturesObserver.TrackDiscretGesture(GestureType.SwipeRight, plate);
-            gesturesObserver.TrackDiscretGesture(GestureType.WaveLeft, tube);
-            gesturesObserver.TrackDiscretGesture(GestureType.WaveRight, drum);
+            var metronom = samplesFactory.GetMetronom();
+
+            //gesturesObserver.TrackGesture(GestureType.SwipeLeft, gitare);
+            //gesturesObserver.TrackGesture(GestureType.SwipeRight, plate);
+            //gesturesObserver.TrackGesture(GestureType.WaveLeft, tube);
+            //gesturesObserver.TrackGesture(GestureType.WaveRight, drum);
+
+            metronom.Play(1);
+
             while (true)
             {
                 Thread.Sleep(100);

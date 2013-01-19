@@ -12,3 +12,9 @@ c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.f
 c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\ResolveAssemblyReference.cache
 c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.dll
 c:\Users\Yury\Documents\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.pdb
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\UnitTests.dll
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\UnitTests.pdb
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.framework.dll
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\bin\Debug\nunit.framework.xml
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.dll
+D:\GitHub\GestoMusic\GestoMusic\UnitTests\obj\Debug\UnitTests.pdb

@@ -47,7 +47,10 @@ namespace GestoMusic
 
         public bool IsTracked { get; protected set; }
 
-        public Sample Sample { get; set; }
+        public Sample Sample
+        {
+            set { _continuesMusucPlayer.Sample = value; }
+        }
 
         private void Start()
         {
@@ -109,17 +112,21 @@ namespace GestoMusic
 
     public class ContinuesMusicPlayer
     {
-        public void SetPitch(float pitch)
+        public Sample Sample { get; set; }
+
+        public void SetPitch(double pitch)
         {
+            Sample.Pitch = pitch;
         }
 
         public void Start()
         {
+            Sample.PlayNonStop(1);
         }
 
         public void Pause()
         {
-
+            Sample.Stop();
         }
     }
 }
