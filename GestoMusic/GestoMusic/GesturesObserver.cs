@@ -8,9 +8,9 @@ namespace GestoMusic
     public class GesturesObserver
     {
         private readonly Dictionary<GestureType, Sample> _getsturesActions = new Dictionary<GestureType, Sample>();
+        private readonly Dictionary<ContinuesGestureSettings, Sample> _continuesGestures = new Dictionary<ContinuesGestureSettings, Sample>();
         private readonly GestureController _gestureController;
         public event EventHandler<GestureSampleArgs> GestureSamplePlayed;
-
 
         public GesturesObserver()
         {
@@ -39,14 +39,32 @@ namespace GestoMusic
             }
         }
 
-        public void TrackGesture(GestureType rightHand, Sample sample)
+        public void TrackDiscretGesture(GestureType rightHand, Sample sample)
         {
             _getsturesActions[rightHand] = sample;
+        }
+
+        public void TrackContinuesGesture(ContinuesGestureSettings settings, Sample sample)
+        {
+            
         }
 
         public void UpdateAllGestures(Skeleton skeleton)
         {
             _gestureController.UpdateAllGestures(skeleton);
+            foreach (var continuesGesture in _continuesGestures)
+            {
+                var settings = continuesGesture.Key;
+                var sample = continuesGesture.Value;
+                if (continuesGesture.Key.IsTracked)
+                {
+                    settings.OnSkeletonAdjustment(new SkeletonArgs
+                        {
+                            Skeleton = skeleton
+                        });
+                    settings.Play(sample);
+                }
+            }
         }
     }
 }
