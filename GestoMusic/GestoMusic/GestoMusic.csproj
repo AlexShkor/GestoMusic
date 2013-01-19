@@ -46,6 +46,12 @@
     <Compile Include="Sample.cs" />
     <Compile Include="SamplesFactory.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures.csproj">
+      <Project>{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}</Project>
+      <Name>Fizbin.Kinect.Gestures</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

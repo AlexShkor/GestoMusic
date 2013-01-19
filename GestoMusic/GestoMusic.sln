@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicPlayer", "MusicPlayer\MusicPlayer.csproj", "{FCF25A89-B492-4480-8EFD-399B7D2848A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fizbin.Kinect.Gestures", "Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures.csproj", "{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{FCF25A89-B492-4480-8EFD-399B7D2848A9}.Release|Mixed Platforms.Build.0 = Release|x86
 		{FCF25A89-B492-4480-8EFD-399B7D2848A9}.Release|x86.ActiveCfg = Release|x86
 		{FCF25A89-B492-4480-8EFD-399B7D2848A9}.Release|x86.Build.0 = Release|x86
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

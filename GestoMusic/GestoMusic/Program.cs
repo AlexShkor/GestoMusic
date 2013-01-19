@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using Fizbin.Kinect.Gestures;
 
 namespace GestoMusic
 {
@@ -13,47 +14,15 @@ namespace GestoMusic
             var plate = samplesFactory.GetGitare();
             var tube = samplesFactory.GetGitare();
             var drum = samplesFactory.GetGitare();
-            gesturesObserver.TrackGesture(
-                GestureTypeEnum.RightHand, () =>
-                    {
-                        gitare.Play();
-                        Console.WriteLine("{0} recognized. {1}",GestureTypeEnum.RightHand, gitare);
-                    }
-                );
-            gesturesObserver.TrackGesture(
-                GestureTypeEnum.LeftHand, () =>
-                    {
-                        plate.Play();
-                        Console.WriteLine("{0} recognized. {1}", GestureTypeEnum.LeftHand, plate);
-                    }
-                );
-            gesturesObserver.TrackGesture(
-                GestureTypeEnum.RighLeg, () =>
-                    {
-                        tube.Play();
-                        Console.WriteLine("{0} recognized. {1}", GestureTypeEnum.RighLeg, tube);
-                    }
-                );
-            gesturesObserver.TrackGesture(
-                GestureTypeEnum.LeftLeg, () =>
-                    {
-                        drum.Play();
-                        Console.WriteLine("{0} recognized. {1}", GestureTypeEnum.LeftLeg, drum);
-                    }
-                );
+            gesturesObserver.TrackGesture(GestureType.SwipeLeft, gitare);
+            gesturesObserver.TrackGesture(GestureType.SwipeRight, plate);
+            gesturesObserver.TrackGesture(GestureType.WaveLeft, tube);
+            gesturesObserver.TrackGesture(GestureType.WaveRight, drum);
             while (true)
             {
                 Thread.Sleep(100);
                 gesturesObserver.Update();
             }
         }
-    }
-
-    public enum GestureTypeEnum
-    {
-        RightHand,
-        LeftHand,
-        RighLeg,
-        LeftLeg
     }
 }
