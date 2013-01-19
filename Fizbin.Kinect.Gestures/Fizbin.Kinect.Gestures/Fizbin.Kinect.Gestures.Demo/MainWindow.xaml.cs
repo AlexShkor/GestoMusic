@@ -184,7 +184,12 @@ namespace Fizbin.Kinect.Gestures.Demo
                 case GestureType.ZoomOut:
                     Gesture = "Zoom Out";
                     break;
-
+                case GestureType.HammerRight:
+                    Gesture = "HammerRight";
+                    break;
+                case GestureType.HammerLeft:
+                    Gesture = "HammerLeft";
+                    break;
                 default:
                     break;
             }

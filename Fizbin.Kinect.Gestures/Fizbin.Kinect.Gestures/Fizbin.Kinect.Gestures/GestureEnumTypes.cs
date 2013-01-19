@@ -39,6 +39,8 @@ namespace Fizbin.Kinect.Gestures
         SwipeLeft,
         SwipeRight,
         ZoomIn,
-        ZoomOut
+        ZoomOut,
+        HammerRight,
+        HammerLeft
     }
 }
