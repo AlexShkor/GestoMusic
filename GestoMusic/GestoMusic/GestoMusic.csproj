@@ -63,6 +63,13 @@
     <Content Include="Samples\Guitar.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Samples\new\guitar_for_wave.wav" />
+    <Content Include="Samples\new\head.wav" />
+    <Content Include="Samples\new\left leg.wav" />
+    <Content Include="Samples\new\l_hand.wav" />
+    <Content Include="Samples\new\metronom_Queen.wav" />
+    <Content Include="Samples\new\right leg.wav" />
+    <Content Include="Samples\new\r_hand.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
