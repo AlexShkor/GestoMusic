@@ -2,5 +2,5 @@
   <Module PersistentId="D693FEAE-6AD8-40B3-BEAB-B96455DA5448" ModuleId="GestoMusic" />
   <Module PersistentId="5DF2C1FE-9704-4FBF-827D-EE80E1887B1E" ModuleId="UnitTests" />
   <Module PersistentId="7471719C-9BD5-42BA-B42B-BB5663EEBBC3" ModuleId="Fizbin.Kinect.Gestures" />
-  <Module PersistentId="8EA97339-147E-49F3-9A05-D2E26B77D4DB" ModuleId="GestoMusic.WpfVisualizer" />
+  <Module PersistentId="FCF25A89-B492-4480-8EFD-399B7D2848A9" ModuleId="MusicPlayer" />
 </Modules>
