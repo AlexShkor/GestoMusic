@@ -4,22 +4,22 @@ namespace GestoMusic
     {
         public Sample GetGitare()
         {
-            throw new System.NotImplementedException();
+            return new Sample("./Samples/808-clap.wav");
         }
 
         public Sample GetDrum()
         {
-            throw new System.NotImplementedException();
+            return new Sample("./Samples/808-clap.wav");
         }
 
         public Sample GetPlate()
         {
-            throw new System.NotImplementedException();
+            return new Sample("./Samples/808-clap.wav");
         }
 
         public Sample GetTube()
         {
-            throw new System.NotImplementedException();
+            return new Sample("./Samples/808-clap.wav");
         }
     }
 

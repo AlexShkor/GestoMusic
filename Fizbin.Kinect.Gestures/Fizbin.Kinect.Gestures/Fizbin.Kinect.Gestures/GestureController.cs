@@ -82,6 +82,16 @@ namespace Fizbin.Kinect.Gestures
             zoomOutSegments[1] = new ZoomSegment2();
             zoomOutSegments[2] = new ZoomSegment1();
             AddGesture(GestureType.ZoomOut, zoomOutSegments);
+
+            IRelativeGestureSegment[] hammerSegmentsRight = new IRelativeGestureSegment[2];
+            hammerSegmentsRight[0] = new HammerRightSegment1();
+            hammerSegmentsRight[1] = new HammerRightSegment2();
+            AddGesture(GestureType.HammerRight, hammerSegmentsRight);
+
+            IRelativeGestureSegment[] hammerSegmentsLeft = new IRelativeGestureSegment[2];
+            hammerSegmentsLeft[0] = new HammerLeftSegment1();
+            hammerSegmentsLeft[1] = new HammerLeftSegment2();
+            AddGesture(GestureType.HammerLeft, hammerSegmentsLeft);
         }
 
         /// <summary>
