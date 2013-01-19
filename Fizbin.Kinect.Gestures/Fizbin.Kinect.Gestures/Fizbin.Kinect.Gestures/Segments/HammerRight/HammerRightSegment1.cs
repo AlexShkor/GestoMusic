@@ -15,10 +15,10 @@ namespace Fizbin.Kinect.Gestures.Segments
         public GesturePartResult CheckGesture(Skeleton skeleton)
         {
             // Right elbow higher than shoulder
-            if (skeleton.Joints[JointType.ElbowRight].Position.Y > skeleton.Joints[JointType.ShoulderRight].Position.Y)// && skeleton.Joints[JointType.HandLeft].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y)
+            if (skeleton.Joints[JointType.ElbowRight].Position.Y > skeleton.Joints[JointType.ShoulderRight].Position.Y - GestureParams.ElbowThreshold)
             {
                 // Right wrist closer to kinect than elbow
-                if (skeleton.Joints[JointType.WristRight].Position.Z > skeleton.Joints[JointType.ElbowRight].Position.Z) //&& skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)
+                if (skeleton.Joints[JointType.WristRight].Position.Z > skeleton.Joints[JointType.ElbowRight].Position.Z)
                 {
                     return GesturePartResult.Suceed;
                 }
