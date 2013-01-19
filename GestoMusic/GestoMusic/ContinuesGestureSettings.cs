@@ -107,17 +107,21 @@ namespace GestoMusic
 
     public class ContinuesMusicPlayer
     {
-        public void SetPitch(float pitch)
+        public Sample Sample { get; set; }
+
+        public void SetPitch(double pitch)
         {
+            Sample.Pitch = pitch;
         }
 
         public void Start()
         {
+            Sample.PlayNonStop(1);
         }
 
         public void Pause()
         {
-
+            Sample.Stop();
         }
     }
 }

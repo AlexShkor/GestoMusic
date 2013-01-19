@@ -15,9 +15,16 @@ namespace GestoMusic
             _player = new WindowsMediaPlayer();
         }
 
+        public double Pitch
+        {
+            set { _player.settings.rate = value; }
+        }
+
         public void Play(double rate = 1d)
         {
             _player.URL = _sample;
+
+            _player.controls.play();
             
             _player.settings.volume = 100;
         }
@@ -61,8 +68,7 @@ namespace GestoMusic
             return inputStream;
         }
 
-
-        public void PlayNonStop(double rate)
+        public void PlayNonStop(double rate = 1)
         {
             Play(rate);
             _player.settings.setMode("loop", true);
@@ -76,6 +82,11 @@ namespace GestoMusic
         public void Faster()
         {
             _player.settings.rate += 0.2;
+        }
+
+        public void Stop()
+        {
+            _player.controls.pause();
         }
     }
 }
