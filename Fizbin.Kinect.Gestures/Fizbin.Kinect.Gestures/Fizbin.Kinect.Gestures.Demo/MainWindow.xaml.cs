@@ -96,11 +96,28 @@ namespace Fizbin.Kinect.Gestures.Demo
             var plate = samplesFactory.GetGitare();
             var tube = samplesFactory.GetGitare();
             var drum = samplesFactory.GetGitare();
-            gesturesObserver.TrackGesture(GestureType.HammerLeft, gitare);
-            gesturesObserver.TrackGesture(GestureType.HammerRight, plate);
-            gesturesObserver.TrackGesture(GestureType.StepLeft, tube);
-            gesturesObserver.TrackGesture(GestureType.StepRight, drum);
-            gesturesObserver.TrackGesture(GestureType.Head, drum);
+            gesturesObserver.TrackDiscretGesture(GestureType.HammerLeft, gitare);
+            gesturesObserver.TrackDiscretGesture(GestureType.HammerRight, plate);
+            gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, tube);
+            gesturesObserver.TrackDiscretGesture(GestureType.StepRight, drum);
+            gesturesObserver.TrackDiscretGesture(GestureType.Head, drum);
+
+            float pitchDetla = 0.6f;
+            var s = new ContinuesGestureSettings
+                {
+                    ActivationGesture = GestureType.ZoomOut,
+                    DeactivationGesture = GestureType.ZoomIn,
+
+                };
+            s.SkeletonAdjustment += (sender, args) =>
+                {
+                    var settings = (ContinuesGestureSettings)sender;
+
+                    settings.Pitch = (args.Skeleton.Joints[JointType.WristLeft].Position.Y -
+                                      args.Skeleton.Joints[JointType.WristRight].Position.Y) * pitchDetla;
+                };
+            gesturesObserver.TrackContinuesGesture(s, drum);
+
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
 
             kinectSensorManager.KinectSensorEnabled = true;
@@ -182,7 +199,7 @@ namespace Fizbin.Kinect.Gestures.Demo
 
         #region Event Handlers
 
-   
+
         /// <summary>
         /// 
         /// </summary>
@@ -209,7 +226,7 @@ namespace Fizbin.Kinect.Gestures.Demo
                         continue;
 
                     //Gesture = Math.Abs(skeleton.Joints[JointType.WristRight].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y).ToString();
-                    
+
                     // update the gesture controller
                     gesturesObserver.UpdateAllGestures(skeleton);
                 }
