@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContinuesGestureSettings.cs" />
     <Compile Include="GestureSampleArgs.cs" />
     <Compile Include="GesturesObserver.cs" />
     <Compile Include="Program.cs" />
@@ -56,6 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Samples\808-clap.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Samples\Guitar.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
