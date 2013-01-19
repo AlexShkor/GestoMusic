@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Fizbin.Kinect.Gestures;
+using Microsoft.Kinect;
 
 namespace GestoMusic
 {
@@ -41,6 +42,11 @@ namespace GestoMusic
         public void TrackGesture(GestureType rightHand, Sample sample)
         {
             _getsturesActions[rightHand] = sample;
+        }
+
+        public void UpdateAllGestures(Skeleton skeleton)
+        {
+            _gestureController.UpdateAllGestures(skeleton);
         }
     }
 

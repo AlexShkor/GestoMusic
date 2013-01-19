@@ -19,8 +19,6 @@ namespace Fizbin.Kinect.Gestures.Demo
 
         private Skeleton[] skeletons = new Skeleton[0];
 
-        // skeleton gesture recognizer
-        private GestureController gestureController;
 
         public MainWindow()
         {
@@ -78,7 +76,7 @@ namespace Fizbin.Kinect.Gestures.Demo
             kinectSensorManager.SkeletonStreamEnabled = true;
 
             // initialize the gesture recognizer
-            var gesturesObserver = new GesturesObserver();
+            gesturesObserver = new GesturesObserver();
             var samplesFactory = new SamplesFactory();
             var gitare = samplesFactory.GetGitare();
             var plate = samplesFactory.GetGitare();
@@ -133,6 +131,9 @@ namespace Fizbin.Kinect.Gestures.Demo
         /// Gets or sets the last recognized gesture.
         /// </summary>
         private string _gesture;
+
+        private GesturesObserver gesturesObserver;
+
         public String Gesture
         {
             get { return _gesture; }
@@ -236,7 +237,7 @@ namespace Fizbin.Kinect.Gestures.Demo
                         continue;
 
                     // update the gesture controller
-                    gestureController.UpdateAllGestures(skeleton);
+                    gesturesObserver.UpdateAllGestures(skeleton);
                 }
             }
         }
