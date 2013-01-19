@@ -101,6 +101,7 @@ namespace Fizbin.Kinect.Gestures.Demo
             gesturesObserver.TrackGesture(GestureType.StepLeft, tube);
             gesturesObserver.TrackGesture(GestureType.StepRight, drum);
             gesturesObserver.TrackGesture(GestureType.Head, drum);
+            gesturesObserver.TrackGesture(GestureType.UpHandLeft, drum);
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
 
             kinectSensorManager.KinectSensorEnabled = true;

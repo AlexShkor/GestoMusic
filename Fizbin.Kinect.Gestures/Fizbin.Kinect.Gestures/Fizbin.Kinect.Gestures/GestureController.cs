@@ -28,62 +28,6 @@ namespace Fizbin.Kinect.Gestures
             }
             AddGesture(GestureType.JoinedHands, joinedhandsSegments);
 
- /*           IRelativeGestureSegment[] menuSegments = new IRelativeGestureSegment[20];
-            MenuSegment1 menuSegment = new MenuSegment1();
-            for (int i = 0; i < 20; i++)
-            {
-                // gesture consists of the same thing 20 times 
-                menuSegments[i] = menuSegment;
-            }
-            AddGesture(GestureType.Menu, menuSegments);
-
-            IRelativeGestureSegment[] swipeleftSegments = new IRelativeGestureSegment[3];
-            swipeleftSegments[0] = new SwipeLeftSegment1();
-            swipeleftSegments[1] = new SwipeLeftSegment2();
-            swipeleftSegments[2] = new SwipeLeftSegment3();
-            AddGesture(GestureType.SwipeLeft, swipeleftSegments);
-
-            IRelativeGestureSegment[] swiperightSegments = new IRelativeGestureSegment[3];
-            swiperightSegments[0] = new SwipeRightSegment1();
-            swiperightSegments[1] = new SwipeRightSegment2();
-            swiperightSegments[2] = new SwipeRightSegment3();
-            AddGesture(GestureType.SwipeRight, swiperightSegments);
-
-            IRelativeGestureSegment[] waveRightSegments = new IRelativeGestureSegment[6];
-            WaveRightSegment1 waveRightSegment1 = new WaveRightSegment1();
-            WaveRightSegment2 waveRightSegment2 = new WaveRightSegment2();
-            waveRightSegments[0] = waveRightSegment1;
-            waveRightSegments[1] = waveRightSegment2;
-            waveRightSegments[2] = waveRightSegment1;
-            waveRightSegments[3] = waveRightSegment2;
-            waveRightSegments[4] = waveRightSegment1;
-            waveRightSegments[5] = waveRightSegment2;
-            AddGesture(GestureType.WaveRight, waveRightSegments);
-
-            IRelativeGestureSegment[] waveLeftSegments = new IRelativeGestureSegment[6];
-            WaveLeftSegment1 waveLeftSegment1 = new WaveLeftSegment1();
-            WaveLeftSegment2 waveLeftSegment2 = new WaveLeftSegment2();
-            waveLeftSegments[0] = waveLeftSegment1;
-            waveLeftSegments[1] = waveLeftSegment2;
-            waveLeftSegments[2] = waveLeftSegment1;
-            waveLeftSegments[3] = waveLeftSegment2;
-            waveLeftSegments[4] = waveLeftSegment1;
-            waveLeftSegments[5] = waveLeftSegment2;
-            AddGesture(GestureType.WaveLeft, waveLeftSegments);
-
-            IRelativeGestureSegment[] zoomInSegments = new IRelativeGestureSegment[3];
-            zoomInSegments[0] = new ZoomSegment1();
-            zoomInSegments[1] = new ZoomSegment2();
-            zoomInSegments[2] = new ZoomSegment3();
-            AddGesture(GestureType.ZoomIn, zoomInSegments);
-
-            IRelativeGestureSegment[] zoomOutSegments = new IRelativeGestureSegment[3];
-            zoomOutSegments[0] = new ZoomSegment3();
-            zoomOutSegments[1] = new ZoomSegment2();
-            zoomOutSegments[2] = new ZoomSegment1();
-            AddGesture(GestureType.ZoomOut, zoomOutSegments);
-            */
-
             IRelativeGestureSegment[] hammerRightSegments = new IRelativeGestureSegment[2];
             hammerRightSegments[0] = new HammerRightSegment1();
             hammerRightSegments[1] = new HammerRightSegment2();
@@ -108,6 +52,11 @@ namespace Fizbin.Kinect.Gestures
             headSegments[0] = new HeadSegment1();
             headSegments[1] = new HeadSegment2();
             AddGesture(GestureType.Head, headSegments);
+
+            IRelativeGestureSegment[] upHandLeftSegments = new IRelativeGestureSegment[2];
+            upHandLeftSegments[0] = new HandUpLeftSegment1();
+            upHandLeftSegments[1] = new HandUpLeftSegment2();
+            AddGesture(GestureType.UpHandLeft, upHandLeftSegments);
         }
 
         /// <summary>
@@ -155,7 +104,7 @@ namespace Fizbin.Kinect.Gestures
 
             foreach (Gesture g in this.gestures)
             {
-                g.Reset();
+                //g.Reset();
             }
         }
     }
