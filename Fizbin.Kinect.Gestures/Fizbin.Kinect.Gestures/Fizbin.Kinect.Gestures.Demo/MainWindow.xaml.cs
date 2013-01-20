@@ -92,24 +92,15 @@ namespace Fizbin.Kinect.Gestures.Demo
             // initialize the gesture recognizer
             gesturesObserver = new GesturesObserver();
             var samplesFactory = new SamplesFactory();
-            var gitare = samplesFactory.GetGitare();
-            var plate = samplesFactory.GetGitare();
-            var tube = samplesFactory.GetGitare();
-            var drum = samplesFactory.GetGitare();
-            gesturesObserver.TrackDiscretGesture(GestureType.HammerLeft, gitare);
-            gesturesObserver.TrackDiscretGesture(GestureType.HammerRight, plate);
-            gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, tube);
-            gesturesObserver.TrackDiscretGesture(GestureType.StepRight, drum);
-            gesturesObserver.TrackDiscretGesture(GestureType.Head, drum);
-            gesturesObserver.TrackDiscretGesture(GestureType.DownHandRight, drum);
-            gesturesObserver.TrackDiscretGesture(GestureType.UpHandRight, drum);
-            gesturesObserver.TrackDiscretGesture(GestureType.DownHandLeft, drum);
-            gesturesObserver.TrackDiscretGesture(GestureType.UpHandLeft, drum);
+            gesturesObserver.TrackDiscretGesture(GestureType.HammerLeft, samplesFactory.GetDrum());
+            gesturesObserver.TrackDiscretGesture(GestureType.HammerRight, samplesFactory.GetDrum2());
+            gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, samplesFactory.GetDrum3());
+            gesturesObserver.TrackDiscretGesture(GestureType.StepRight, samplesFactory.GetPlate());
+            gesturesObserver.TrackDiscretGesture(GestureType.Head, samplesFactory.GetPlate1());
 
-            _settings = new HandUpContiniousGestureSettings();
-            gesturesObserver.TrackContinuesGesture(_settings, gitare);
+            //_settings = new HandUpContiniousGestureSettings();
+            //gesturesObserver.TrackContinuesGesture(_settings, samplesFactory.Wawe());
 
-            gesturesObserver.TrackDiscretGesture(GestureType.UpHandLeft, drum);
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
 
             kinectSensorManager.KinectSensorEnabled = true;
@@ -219,7 +210,7 @@ namespace Fizbin.Kinect.Gestures.Demo
                         continue;
 
 
-                    Gesture = _settings.Pitch.ToString();
+                    //Gesture = _settings.Pitch.ToString();
                     //Gesture = Math.Abs(skeleton.Joints[JointType.WristRight].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y).ToString();
 
                     // update the gesture controller
