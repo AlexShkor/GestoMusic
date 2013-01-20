@@ -34,22 +34,45 @@ namespace GestoMusic
 
         private void PlayWithNAudio()
         {
-            if (_waveStream == null)
-            {
-                _waveStream = new WaveFileReader(_sample);
+            _waveStream = new WaveFileReader(_sample);
+            var superWavStream32 = processWaveStream(_waveStream);
 
+            //if (_waveStream == null)
+            //{
+            //    _waveStream = new WaveFileReader(_sample);
+            //}
+            //else
+            //{
+            //    _waveStream.Seek(0, SeekOrigin.Begin);
+            //}
 
-            }
-            else
-            {
-                _waveStream.Seek(0, SeekOrigin.Begin);
-
-            }
             _wave = new WaveOut();
-            _wave.Init(_waveStream);
+            _wave.Init(superWavStream32);
 
             _wave.Volume = 1.0f;
             _wave.Play();
+        }
+
+        private WaveChannel32 processWaveStream(WaveStream readerStream)
+        {
+            // Provide PCM conversion if needed
+            if (readerStream.WaveFormat.Encoding != WaveFormatEncoding.Pcm)
+            {
+                readerStream = WaveFormatConversionStream.CreatePcmStream(readerStream);
+                readerStream = new BlockAlignReductionStream(readerStream);
+            }
+
+            // Provide conversion to 16 bits if needed
+            if (readerStream.WaveFormat.BitsPerSample != 16)
+            {
+                var format = new WaveFormat(readerStream.WaveFormat.SampleRate,
+                16, readerStream.WaveFormat.Channels);
+                readerStream = new WaveFormatConversionStream(format, readerStream);
+            }
+
+            var inputStream = new WaveChannel32(readerStream);
+
+            return inputStream;
         }
 
         public void PlayNonStop()
@@ -57,7 +80,8 @@ namespace GestoMusic
             if (_wave == null)
             {
                 var reader = new WaveFileReader(_sample);
-                var loop = new LoopStream(reader);
+                var superWavStream32 = processWaveStream(reader);
+                var loop = new LoopStream(superWavStream32);
                 var effects = new EffectChain();
                 var effectStream = new EffectStream(effects, loop);
                 _pitch = new SuperPitch();
