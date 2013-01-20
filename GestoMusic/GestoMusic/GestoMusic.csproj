@@ -91,6 +91,9 @@
     <Content Include="Samples\new\queen.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Samples\new\queen.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Samples\new\right_leg.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -11,7 +11,7 @@ namespace GestoMusic
         private readonly string _sample;
         private SuperPitch _pitch;
         private WaveOut _wave;
-        private WaveFileReader _waveStream;
+        private IWaveProvider _waveStream;
 
         public Sample(string sample)
         {
@@ -32,24 +32,41 @@ namespace GestoMusic
             PlayWithNAudio();
         }
 
+        public IWaveProvider LoadFile(string fileName)
+        {
+            IWaveProvider waveStream = null;
+            if (fileName.EndsWith(".mp3"))
+            {
+                waveStream = new Mp3FileReader(fileName);
+            }
+            else if (fileName.EndsWith(".wav"))
+            {
+                waveStream = new WaveFileReader(fileName);
+            }
+            return waveStream;
+        }
+
+
         private void PlayWithNAudio()
         {
-            if (_waveStream == null)
+            var stream =LoadFile(_sample);
+            var wave = new WaveOut();
+            wave.Init(stream);
+
+            wave.Volume = 1.0f;
+            wave.Play();
+        }
+
+        private void SeekToBegin()
+        {
+            if (_waveStream is Mp3FileReader)
             {
-                _waveStream = new WaveFileReader(_sample);
-
-
+                (_waveStream as Mp3FileReader).Seek(0, SeekOrigin.Begin);
             }
-            else
+            if (_waveStream is WaveFileReader)
             {
-                _waveStream.Seek(0, SeekOrigin.Begin);
-
+                (_waveStream as WaveFileReader).Seek(0, SeekOrigin.Begin);
             }
-            _wave = new WaveOut();
-            _wave.Init(_waveStream);
-
-            _wave.Volume = 1.0f;
-            _wave.Play();
         }
 
         public void PlayNonStop()
