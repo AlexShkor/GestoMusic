@@ -11,7 +11,6 @@ namespace GestoMusic
         private readonly string _sample;
         private SuperPitch _pitch;
         private WaveOut _wave;
-        private WaveFileReader _waveStream;
 
         public Sample(string sample)
         {
@@ -34,23 +33,14 @@ namespace GestoMusic
 
         private void PlayWithNAudio()
         {
-            _waveStream = new WaveFileReader(_sample);
-            var superWavStream32 = processWaveStream(_waveStream);
+            var waveStream = new WaveFileReader(_sample);
+            var superWavStream32 = processWaveStream(waveStream);
 
-            //if (_waveStream == null)
-            //{
-            //    _waveStream = new WaveFileReader(_sample);
-            //}
-            //else
-            //{
-            //    _waveStream.Seek(0, SeekOrigin.Begin);
-            //}
+            var player = new DirectSoundOut(50);
+            player.Init(superWavStream32);
 
-            _wave = new WaveOut();
-            _wave.Init(superWavStream32);
-
-            _wave.Volume = 1.0f;
-            _wave.Play();
+            player.Volume = 1.0f;
+            player.Play();
         }
 
         private WaveChannel32 processWaveStream(WaveStream readerStream)
@@ -77,11 +67,8 @@ namespace GestoMusic
 
         public void PlayNonStop()
         {
-            if (_wave == null)
-            {
                 var reader = new WaveFileReader(_sample);
-                var superWavStream32 = processWaveStream(reader);
-                var loop = new LoopStream(superWavStream32);
+                var loop = new LoopStream(reader);
                 var effects = new EffectChain();
                 var effectStream = new EffectStream(effects, loop);
                 _pitch = new SuperPitch();
@@ -89,11 +76,6 @@ namespace GestoMusic
                 _wave = new WaveOut();
                 _wave.Init(effectStream);
                 _wave.Play();
-            }
-            else
-            {
-                _wave.Resume();
-            }
         }
 
         public void Stop()
