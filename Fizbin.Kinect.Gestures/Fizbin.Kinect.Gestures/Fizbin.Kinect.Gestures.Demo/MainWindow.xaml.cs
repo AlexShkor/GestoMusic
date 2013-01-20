@@ -81,7 +81,7 @@ namespace Fizbin.Kinect.Gestures.Demo
                 {
                     Smoothing = 0.5f,
                     Correction = 0.5f,
-                    Prediction = 0.5f,
+                    Prediction = 0.8f,
                     JitterRadius = 0.05f,
                     MaxDeviationRadius = 0.04f
                 };
@@ -93,7 +93,7 @@ namespace Fizbin.Kinect.Gestures.Demo
             // initialize the gesture recognizer
             _samplesFactory = new SamplesFactory();
             _metro = _samplesFactory.GetMetronom();
-            _metro.PlayNonStop();
+           // _metro.Play();
 
 
             CreateObserver(_samplesFactory);
