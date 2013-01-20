@@ -11,7 +11,7 @@ namespace GestoMusic
         private readonly string _sample;
         private SuperPitch _pitch;
         private WaveOut _wave;
-        private IWaveProvider _waveStream;
+        private WaveFileReader _waveStream;
 
         public Sample(string sample)
         {
@@ -32,41 +32,47 @@ namespace GestoMusic
             PlayWithNAudio();
         }
 
-        public IWaveProvider LoadFile(string fileName)
-        {
-            IWaveProvider waveStream = null;
-            if (fileName.EndsWith(".mp3"))
-            {
-                waveStream = new Mp3FileReader(fileName);
-            }
-            else if (fileName.EndsWith(".wav"))
-            {
-                waveStream = new WaveFileReader(fileName);
-            }
-            return waveStream;
-        }
-
-
         private void PlayWithNAudio()
         {
-            var stream =LoadFile(_sample);
-            var wave = new WaveOut();
-            wave.Init(stream);
+            _waveStream = new WaveFileReader(_sample);
+            var superWavStream32 = processWaveStream(_waveStream);
 
-            wave.Volume = 1.0f;
-            wave.Play();
+            //if (_waveStream == null)
+            //{
+            //    _waveStream = new WaveFileReader(_sample);
+            //}
+            //else
+            //{
+            //    _waveStream.Seek(0, SeekOrigin.Begin);
+            //}
+
+            _wave = new WaveOut();
+            _wave.Init(superWavStream32);
+
+            _wave.Volume = 1.0f;
+            _wave.Play();
         }
 
-        private void SeekToBegin()
+        private WaveChannel32 processWaveStream(WaveStream readerStream)
         {
-            if (_waveStream is Mp3FileReader)
+            // Provide PCM conversion if needed
+            if (readerStream.WaveFormat.Encoding != WaveFormatEncoding.Pcm)
             {
-                (_waveStream as Mp3FileReader).Seek(0, SeekOrigin.Begin);
+                readerStream = WaveFormatConversionStream.CreatePcmStream(readerStream);
+                readerStream = new BlockAlignReductionStream(readerStream);
             }
-            if (_waveStream is WaveFileReader)
+
+            // Provide conversion to 16 bits if needed
+            if (readerStream.WaveFormat.BitsPerSample != 16)
             {
-                (_waveStream as WaveFileReader).Seek(0, SeekOrigin.Begin);
+                var format = new WaveFormat(readerStream.WaveFormat.SampleRate,
+                16, readerStream.WaveFormat.Channels);
+                readerStream = new WaveFormatConversionStream(format, readerStream);
             }
+
+            var inputStream = new WaveChannel32(readerStream);
+
+            return inputStream;
         }
 
         public void PlayNonStop()
@@ -74,7 +80,8 @@ namespace GestoMusic
             if (_wave == null)
             {
                 var reader = new WaveFileReader(_sample);
-                var loop = new LoopStream(reader);
+                var superWavStream32 = processWaveStream(reader);
+                var loop = new LoopStream(superWavStream32);
                 var effects = new EffectChain();
                 var effectStream = new EffectStream(effects, loop);
                 _pitch = new SuperPitch();
