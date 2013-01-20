@@ -117,7 +117,8 @@ namespace Fizbin.Kinect.Gestures.Demo
             gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, samplesFactory.GetDrumLegLeft());
             gesturesObserver.TrackDiscretGesture(GestureType.StepRight, samplesFactory.GetDrumLegRight());
             gesturesObserver.TrackDiscretGesture(GestureType.Head, samplesFactory.GetDrumHead());
-            gesturesObserver.TrackDiscretGesture(GestureType.JoinedHands, samplesFactory.Wawe());
+            gesturesObserver.TrackDiscretGesture(GestureType.JoinedHands, samplesFactory.GetGuitarLoop());
+            gesturesObserver.TrackDiscretGesture(GestureType.Menu, samplesFactory.GetPianoLoop());
 
             _settings = new HandUpContiniousGestureSettings();
             gesturesObserver.TrackContinuesGesture(_settings, samplesFactory.Wawe());

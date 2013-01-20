@@ -43,7 +43,24 @@ namespace GestoMusic
 
         public Sample GetMetronom()
         {
-            return new Sample(GetFullPath("Kalimba.wav"));
+            return new Sample(GetFullPath("Beat.wav"));
+        }
+
+        public Sample GetGuitarLoop()
+        {
+            return new Sample(GetFullPath("GuitarLoop.wav"))
+                {
+                    IsConcurent = true
+                };
+        }
+
+
+        public Sample GetPianoLoop()
+        {
+            return new Sample(GetFullPath("Piano.wav"))
+                {
+                    IsConcurent = true
+                };
         }
 
         private string GetFullPath(string path)

@@ -19,14 +19,23 @@ namespace Fizbin.Kinect.Gestures
         {
             // Define the gestures
 
-            IRelativeGestureSegment[] joinedhandsSegments = new IRelativeGestureSegment[5];
+            IRelativeGestureSegment[] joinedhandsSegments = new IRelativeGestureSegment[2];
             JoinedHandsSegment1 joinedhandsSegment = new JoinedHandsSegment1();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 2; i++)
             {
                 // gesture consists of the same thing 10 times 
                 joinedhandsSegments[i] = joinedhandsSegment;
             }
             AddGesture(GestureType.JoinedHands, joinedhandsSegments);
+
+            IRelativeGestureSegment[] menuSegments = new IRelativeGestureSegment[10];
+            MenuSegment1 menuSegment = new MenuSegment1();
+            for (int i = 0; i < 10; i++)
+            {
+                // gesture consists of the same thing 20 times 
+                menuSegments[i] = menuSegment;
+            }
+            AddGesture(GestureType.Menu, menuSegments);
 
             IRelativeGestureSegment[] hammerRightSegments = new IRelativeGestureSegment[2];
             hammerRightSegments[0] = new HammerRightSegment1();

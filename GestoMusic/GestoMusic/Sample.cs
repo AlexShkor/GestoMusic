@@ -12,6 +12,12 @@ namespace GestoMusic
         private SuperPitch _pitch;
         private WaveOut _wave;
 
+        public bool IsConcurent { get; set; }
+
+        private bool _isPlaying = false;
+        private DirectSoundOut _player;
+        private WaveFileReader _waveStream;
+
         public Sample(string sample)
         {
             _sample = sample;
@@ -33,14 +39,17 @@ namespace GestoMusic
 
         private void PlayWithNAudio()
         {
-            var waveStream = new WaveFileReader(_sample);
-            var superWavStream32 = processWaveStream(waveStream);
+            if (!IsConcurent || _waveStream == null || _waveStream.Position == _waveStream.Length)
+            {
+                _waveStream = new WaveFileReader(_sample);
+                var superWavStream32 = processWaveStream(_waveStream);
 
-            var player = new DirectSoundOut(50);
-            player.Init(superWavStream32);
+                _player = new DirectSoundOut(50);
+                _player.Init(superWavStream32);
 
-            player.Volume = 1.0f;
-            player.Play();
+                _player.Volume = 1.0f;
+                _player.Play();
+            }
         }
 
         private WaveChannel32 processWaveStream(WaveStream readerStream)
