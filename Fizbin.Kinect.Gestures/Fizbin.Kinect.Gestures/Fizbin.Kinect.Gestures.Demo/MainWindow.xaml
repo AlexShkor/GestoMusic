@@ -8,7 +8,7 @@
             <ColumnDefinition Width="96*" />
             <ColumnDefinition Width="407*" />
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Path=Logs}" Grid.Column="0" FontSize="24" Foreground="#FF1A4F6F" FontWeight="Bold" />
+        <!--<ListBox ItemsSource="{Binding Path=Logs}" Grid.Column="0" FontSize="24" Foreground="#FF1A4F6F" FontWeight="Bold" />-->
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" >
             <kv:KinectColorViewer x:Name="DepthViewer" KinectSensorManager="{Binding KinectSensorManager}" />
             <Canvas>

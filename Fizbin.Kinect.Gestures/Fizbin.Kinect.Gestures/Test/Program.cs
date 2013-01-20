@@ -17,14 +17,16 @@ namespace Test
             var guitar = samplesFactory.GetGitare();
 
             //kalimba.Play(1.0);
-            kalimba.PlayNonStop(1);
+            //kalimba.PlayNonStop(1);
 
-            while (true)
-            {
-                Thread.Sleep(3000);
-                guitar.Faster();
-                drum.Play(1);
-            }
+            guitar.PlayNonStop();
+
+            //while (true)
+            //{
+            //    Thread.Sleep(3000);
+            //    guitar.Faster();
+            //    drum.Play(1);
+            //}
             
             Console.ReadLine();
         }

@@ -21,7 +21,7 @@ namespace GestoMusic
             //gesturesObserver.TrackGesture(GestureType.WaveLeft, tube);
             //gesturesObserver.TrackGesture(GestureType.WaveRight, drum);
 
-            metronom.Play(1);
+            metronom.Play();
 
             while (true)
             {

@@ -38,12 +38,12 @@ namespace GestoMusic
 
         public Sample Wawe()
         {
-            return new Sample(GetFullPath("Kalimba.mp3"));
+            return new Sample(GetFullPath("guitar_for_wave.wav"));
         }
 
         public Sample GetMetronom()
         {
-            return new Sample(GetFullPath("metronom_Queen.wav"));
+            return new Sample(GetFullPath("guitar_for_wave.wav"));
         }
 
         private string GetFullPath(string path)

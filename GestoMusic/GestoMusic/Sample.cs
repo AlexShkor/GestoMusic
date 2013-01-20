@@ -7,86 +7,43 @@ namespace GestoMusic
     public class Sample
     {
         private readonly string _sample;
-        private readonly WindowsMediaPlayer _player;
+        private readonly WaveOut _player = new WaveOut();
 
         public Sample(string sample)
         {
             _sample = sample;
-            _player = new WindowsMediaPlayer();
         }
 
-        public double Pitch
+        public double Pitch { get; set; }
+
+        public void Play()
         {
-            set { _player.settings.rate = value; }
+            PlayWithNAudio();
         }
 
-        public void Play(double rate = 1d)
+        private void PlayWithNAudio()
         {
-            _player.URL = _sample;
+            var waveStream = new WaveFileReader(_sample);
 
-            _player.controls.play();
-            
-            _player.settings.volume = 100;
+            _player.Init(waveStream);
+
+            _player.Volume = 1.0f;
+            _player.Play();
         }
 
-        public void PlayWithNAudio()
+        public void PlayNonStop()
         {
-            var waveOutDevice = new DirectSoundOut(50);
+            var reader = new WaveFileReader(_sample);
+            var loop = new LoopStream(reader);
 
-            var mainOutputStream = CreateInputStream(_sample);
-        }
-
-        private static WaveStream CreateInputStream(string fileName)
-        {
-            WaveStream readerStream = null;
-
-            if (fileName.EndsWith(".wav"))
-            {
-                readerStream = new WaveFileReader(fileName);
-            }
-            else
-            {
-                throw new InvalidOperationException("Unsupported extension");
-            }
-
-            // Provide PCM conversion if needed
-            if (readerStream.WaveFormat.Encoding != WaveFormatEncoding.Pcm)
-            {
-                readerStream = WaveFormatConversionStream.CreatePcmStream(readerStream);
-                readerStream = new BlockAlignReductionStream(readerStream);
-            }
-
-            // Provide conversion to 16 bits if needed
-            if (readerStream.WaveFormat.BitsPerSample != 16)
-            {
-                var format = new WaveFormat(readerStream.WaveFormat.SampleRate, 16, readerStream.WaveFormat.Channels);
-                readerStream = new WaveFormatConversionStream(format, readerStream);
-            }
-
-            var inputStream = new WaveChannel32(readerStream);
-
-            return inputStream;
-        }
-
-        public void PlayNonStop(double rate = 1)
-        {
-            Play(rate);
-            _player.settings.setMode("loop", true);
-        }
-
-        public void Slower()
-        {
-            _player.settings.rate -= 0.2;
-        }
-
-        public void Faster()
-        {
-            _player.settings.rate += 0.2;
+            var wave = new WaveOut();
+            wave.Init(loop);
+            wave.Play();
         }
 
         public void Stop()
         {
-            _player.controls.pause();
+            _player.Pause();
         }
     }
 }

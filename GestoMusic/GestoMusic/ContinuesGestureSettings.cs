@@ -121,7 +121,7 @@ namespace GestoMusic
 
         public void Start()
         {
-            Sample.PlayNonStop(1);
+            Sample.PlayNonStop();
         }
 
         public void Pause()
