@@ -214,7 +214,7 @@ namespace Fizbin.Kinect.Gestures.Demo
                         continue;
 
 
-                    //Gesture = _settings.Pitch.ToString();
+                    Gesture = _settings.Pitch.ToString();
                     //Gesture = Math.Abs(skeleton.Joints[JointType.WristRight].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y).ToString();
 
                     // update the gesture controller

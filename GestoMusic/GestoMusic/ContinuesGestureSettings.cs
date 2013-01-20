@@ -114,7 +114,7 @@ namespace GestoMusic
     {
         public Sample Sample { get; set; }
 
-        public void SetPitch(double pitch)
+        public void SetPitch(float pitch)
         {
             Sample.Pitch = pitch;
         }

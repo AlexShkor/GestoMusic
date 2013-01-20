@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNAudio", "TestNAudio\TestNAudio.csproj", "{009742CD-BFAD-48BF-BF12-3D6DBDE5BD4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSNet", "..\..\JSNet\JSNet.csproj", "{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,16 @@ Global
 		{009742CD-BFAD-48BF-BF12-3D6DBDE5BD4C}.Release|Mixed Platforms.Build.0 = Release|x86
 		{009742CD-BFAD-48BF-BF12-3D6DBDE5BD4C}.Release|x86.ActiveCfg = Release|x86
 		{009742CD-BFAD-48BF-BF12-3D6DBDE5BD4C}.Release|x86.Build.0 = Release|x86
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

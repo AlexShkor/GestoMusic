@@ -26,7 +26,7 @@ namespace GestoMusic
 
                     var delta =Math.Abs (args.Skeleton.Joints[JointType.WristLeft].Position.X -
                                  args.Skeleton.Joints[JointType.WristRight].Position.X);
-                    Pitch = Math.Min(( (delta -0.2f) /0.6f), 1f) - 0.5f;
+                    Pitch = ((Math.Min(Math.Abs((delta - 0.2f) / 0.6f), 1f) - 0.5f) * 24);
                 };
         }
 

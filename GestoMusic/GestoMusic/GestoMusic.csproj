@@ -82,7 +82,7 @@
     <Content Include="Samples\new\head.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Samples\new\left leg.wav">
+    <Content Include="Samples\new\left_leg.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Samples\new\l_hand.wav">
@@ -91,7 +91,7 @@
     <Content Include="Samples\new\queen.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Samples\new\right leg.wav">
+    <Content Include="Samples\new\right_leg.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Samples\new\r_hand.wav">
@@ -105,6 +105,10 @@
     <ProjectReference Include="..\..\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures\Fizbin.Kinect.Gestures.csproj">
       <Project>{7471719C-9BD5-42BA-B42B-BB5663EEBBC3}</Project>
       <Name>Fizbin.Kinect.Gestures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\JSNet\JSNet.csproj">
+      <Project>{9A41CAC8-1D4F-44D6-B324-E0076D0AD590}</Project>
+      <Name>JSNet</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

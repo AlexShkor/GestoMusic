@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using JSNet;
 using NAudio.Wave;
 using WMPLib;
 
@@ -7,14 +9,23 @@ namespace GestoMusic
     public class Sample
     {
         private readonly string _sample;
-        private readonly WaveOut _player = new WaveOut();
+        private SuperPitch _pitch;
+        private WaveOut _wave;
+        private WaveFileReader _waveStream;
 
         public Sample(string sample)
         {
             _sample = sample;
         }
 
-        public double Pitch { get; set; }
+        public float Pitch
+        {
+            set
+            {
+                _pitch.SetSemitones(value);
+                _pitch.Slider();
+            }
+        }
 
         public void Play()
         {
@@ -23,27 +34,47 @@ namespace GestoMusic
 
         private void PlayWithNAudio()
         {
-            var waveStream = new WaveFileReader(_sample);
+            if (_waveStream == null)
+            {
+                _waveStream = new WaveFileReader(_sample);
 
-            _player.Init(waveStream);
 
-            _player.Volume = 1.0f;
-            _player.Play();
+            }
+            else
+            {
+                _waveStream.Seek(0, SeekOrigin.Begin);
+
+            }
+            _wave = new WaveOut();
+            _wave.Init(_waveStream);
+
+            _wave.Volume = 1.0f;
+            _wave.Play();
         }
 
         public void PlayNonStop()
         {
-            var reader = new WaveFileReader(_sample);
-            var loop = new LoopStream(reader);
-
-            var wave = new WaveOut();
-            wave.Init(loop);
-            wave.Play();
+            if (_wave == null)
+            {
+                var reader = new WaveFileReader(_sample);
+                var loop = new LoopStream(reader);
+                var effects = new EffectChain();
+                var effectStream = new EffectStream(effects, loop);
+                _pitch = new SuperPitch();
+                effectStream.AddEffect(_pitch);
+                _wave = new WaveOut();
+                _wave.Init(effectStream);
+                _wave.Play();
+            }
+            else
+            {
+                _wave.Resume();
+            }
         }
 
         public void Stop()
         {
-            _player.Pause();
+            _wave.Pause();
         }
     }
 }
