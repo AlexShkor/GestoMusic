@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Data;
 using GestoMusic;
@@ -90,11 +91,26 @@ namespace Fizbin.Kinect.Gestures.Demo
             kinectSensorManager.SkeletonStreamEnabled = true;
 
             // initialize the gesture recognizer
-            gesturesObserver = new GesturesObserver();
-           
-            var samplesFactory = new SamplesFactory();
-            //_metro = samplesFactory.GetMetronom();
-            //_metro.PlayNonStop();
+            _samplesFactory = new SamplesFactory();
+            _metro = _samplesFactory.GetMetronom();
+            _metro.PlayNonStop();
+
+
+            CreateObserver(_samplesFactory);
+
+            kinectSensorManager.KinectSensorEnabled = true;
+
+            if (!kinectSensorManager.KinectSensorAppConflict)
+            {
+                // addition configuration, as needed
+            }
+        }
+
+        private GesturesObserver CreateObserver(SamplesFactory samplesFactory)
+        {
+            var gesturesObserver = new GesturesObserver();
+
+
             gesturesObserver.TrackDiscretGesture(GestureType.HammerLeft, samplesFactory.GetDrum());
             gesturesObserver.TrackDiscretGesture(GestureType.HammerRight, samplesFactory.GetDrum2());
             gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, samplesFactory.GetDrum3());
@@ -105,13 +121,7 @@ namespace Fizbin.Kinect.Gestures.Demo
             gesturesObserver.TrackContinuesGesture(_settings, samplesFactory.Wawe());
 
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
-
-            kinectSensorManager.KinectSensorEnabled = true;
-
-            if (!kinectSensorManager.KinectSensorAppConflict)
-            {
-                // addition configuration, as needed
-            }
+            return gesturesObserver;
         }
 
         private void GestureSamplePlayed(object sender, GestureSampleArgs e)
@@ -152,9 +162,10 @@ namespace Fizbin.Kinect.Gestures.Demo
         /// </summary>
         private string _gesture;
 
-        private GesturesObserver gesturesObserver;
+        private Dictionary<int, GesturesObserver> _observers = new Dictionary<int, GesturesObserver>();
         private HandUpContiniousGestureSettings _settings;
         private Sample _metro;
+        private SamplesFactory _samplesFactory;
 
         public String Gesture
         {
@@ -218,7 +229,11 @@ namespace Fizbin.Kinect.Gestures.Demo
                     //Gesture = Math.Abs(skeleton.Joints[JointType.WristRight].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y).ToString();
 
                     // update the gesture controller
-                    gesturesObserver.UpdateAllGestures(skeleton);
+                    if (!_observers.ContainsKey(skeleton.TrackingId))
+                    {
+                        _observers[skeleton.TrackingId] = CreateObserver(_samplesFactory);
+                    }
+                    _observers[skeleton.TrackingId].UpdateAllGestures(skeleton);
                 }
             }
         }
