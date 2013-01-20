@@ -22,11 +22,11 @@ namespace GestoMusic
         private void OnGestureRecognized(object sender, GestureEventArgs e)
         {
             var excluelist = Enumerable.Empty<GestureType>();
-            //foreach (var continuesGesture in _continuesGestures)
-            //{
-            //    excluelist = excluelist.Concat(continuesGesture.ExcludeGesturesIfTracked);
-            //    continuesGesture.Update(e.GestureType);
-            //}
+            foreach (var continuesGesture in _continuesGestures)
+            {
+                excluelist = excluelist.Concat(continuesGesture.ExcludeGesturesIfTracked);
+                continuesGesture.Update(e.GestureType);
+            }
             if (_getsturesActions.ContainsKey(e.GestureType) && !excluelist.Contains(e.GestureType))
             {
                 var sample = _getsturesActions[e.GestureType];
