@@ -93,8 +93,8 @@ namespace Fizbin.Kinect.Gestures.Demo
             gesturesObserver = new GesturesObserver();
            
             var samplesFactory = new SamplesFactory();
-            _metro = samplesFactory.GetMetronom();
-           // _metro.PlayNonStop();
+            //_metro = samplesFactory.GetMetronom();
+            //_metro.PlayNonStop();
             gesturesObserver.TrackDiscretGesture(GestureType.HammerLeft, samplesFactory.GetDrum());
             gesturesObserver.TrackDiscretGesture(GestureType.HammerRight, samplesFactory.GetDrum2());
             gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, samplesFactory.GetDrum3());

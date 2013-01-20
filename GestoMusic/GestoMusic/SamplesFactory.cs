@@ -43,7 +43,7 @@ namespace GestoMusic
 
         public Sample GetMetronom()
         {
-            return new Sample(GetFullPath("guitar_for_wave.wav"));
+            return new Sample(GetFullPath("r_hand.wav"));
         }
 
         private string GetFullPath(string path)
