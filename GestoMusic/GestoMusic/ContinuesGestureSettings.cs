@@ -97,6 +97,13 @@ namespace GestoMusic
             }
             return ContinuesGestureResult.None;
         }
+
+        public void Deactivate()
+        {
+            Sample.Stop();
+            IsTracked = false;
+            SkeletonAdjustment = null;
+        }
     }
 
     public enum ContinuesGestureResult

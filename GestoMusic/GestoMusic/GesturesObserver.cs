@@ -74,10 +74,11 @@ namespace GestoMusic
         {
             foreach (var getsturesAction in _continuesGestures)
             {
-                getsturesAction.Sample.Stop();
+                getsturesAction.Deactivate();
             }
             _continuesGestures.Clear();
             _getsturesActions.Clear();
+            _gestureController.GestureRecognized -= OnGestureRecognized;
         }
     }
 }

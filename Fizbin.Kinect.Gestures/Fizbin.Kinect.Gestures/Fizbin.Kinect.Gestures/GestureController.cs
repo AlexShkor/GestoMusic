@@ -19,9 +19,9 @@ namespace Fizbin.Kinect.Gestures
         {
             // Define the gestures
 
-            IRelativeGestureSegment[] joinedhandsSegments = new IRelativeGestureSegment[20];
+            IRelativeGestureSegment[] joinedhandsSegments = new IRelativeGestureSegment[5];
             JoinedHandsSegment1 joinedhandsSegment = new JoinedHandsSegment1();
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 5; i++)
             {
                 // gesture consists of the same thing 10 times 
                 joinedhandsSegments[i] = joinedhandsSegment;

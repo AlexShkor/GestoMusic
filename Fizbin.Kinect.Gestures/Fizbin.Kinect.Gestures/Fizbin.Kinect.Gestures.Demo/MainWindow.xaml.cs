@@ -112,11 +112,12 @@ namespace Fizbin.Kinect.Gestures.Demo
             var gesturesObserver = new GesturesObserver();
 
 
-            gesturesObserver.TrackDiscretGesture(GestureType.HammerLeft, samplesFactory.GetDrum());
-            gesturesObserver.TrackDiscretGesture(GestureType.HammerRight, samplesFactory.GetDrum2());
-            gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, samplesFactory.GetDrum3());
-            gesturesObserver.TrackDiscretGesture(GestureType.StepRight, samplesFactory.GetPlate());
-            gesturesObserver.TrackDiscretGesture(GestureType.Head, samplesFactory.GetPlate1());
+            gesturesObserver.TrackDiscretGesture(GestureType.HammerLeft, samplesFactory.GetDrumHandLeft());
+            gesturesObserver.TrackDiscretGesture(GestureType.HammerRight, samplesFactory.GetDrumHandRight());
+            gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, samplesFactory.GetDrumLegLeft());
+            gesturesObserver.TrackDiscretGesture(GestureType.StepRight, samplesFactory.GetDrumLegRight());
+            gesturesObserver.TrackDiscretGesture(GestureType.Head, samplesFactory.GetDrumHead());
+            gesturesObserver.TrackDiscretGesture(GestureType.JoinedHands, samplesFactory.Wawe());
 
             _settings = new HandUpContiniousGestureSettings();
             gesturesObserver.TrackContinuesGesture(_settings, samplesFactory.Wawe());

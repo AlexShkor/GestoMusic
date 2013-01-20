@@ -11,27 +11,27 @@ namespace GestoMusic
             return new Sample(GetFullPath("guitar_for_wave.wav"));
         }
 
-        public Sample GetDrum()
+        public Sample GetDrumHead()
         {
             return new Sample(GetFullPath("head.wav"));
         }
 
-        public Sample GetDrum2()
+        public Sample GetDrumLegLeft()
         {
             return new Sample(GetFullPath("left_leg.wav"));
         }
 
-        public Sample GetDrum3()
+        public Sample GetDrumLegRight()
         {
             return new Sample(GetFullPath("right_leg.wav"));
         }
 
-        public Sample GetPlate()
+        public Sample GetDrumHandLeft()
         {
             return new Sample(GetFullPath("l_hand.wav"));
         }
 
-        public Sample GetPlate1()
+        public Sample GetDrumHandRight()
         {
             return new Sample(GetFullPath("r_hand.wav"));
         }

@@ -12,8 +12,8 @@ namespace Test
         static void Main(string[] args)
         {
             var samplesFactory = new SamplesFactory();
-            var kalimba = samplesFactory.Wawe();
-            var drum = samplesFactory.GetDrum();
+//            var kalimba = samplesFactory.Wawe();
+//            var drum = samplesFactory.GetDrum();
             var guitar = samplesFactory.GetGitare();
 
             //kalimba.Play(1.0);
