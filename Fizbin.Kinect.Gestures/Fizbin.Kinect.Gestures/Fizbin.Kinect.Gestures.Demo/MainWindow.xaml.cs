@@ -94,15 +94,15 @@ namespace Fizbin.Kinect.Gestures.Demo
            
             var samplesFactory = new SamplesFactory();
             _metro = samplesFactory.Wawe();
-            _metro.PlayNonStop();
+           // _metro.PlayNonStop();
             gesturesObserver.TrackDiscretGesture(GestureType.HammerLeft, samplesFactory.GetDrum());
             gesturesObserver.TrackDiscretGesture(GestureType.HammerRight, samplesFactory.GetDrum2());
             gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, samplesFactory.GetDrum3());
             gesturesObserver.TrackDiscretGesture(GestureType.StepRight, samplesFactory.GetPlate());
             gesturesObserver.TrackDiscretGesture(GestureType.Head, samplesFactory.GetPlate1());
 
-            //_settings = new HandUpContiniousGestureSettings();
-            //gesturesObserver.TrackContinuesGesture(_settings, samplesFactory.Wawe());
+            _settings = new HandUpContiniousGestureSettings();
+            gesturesObserver.TrackContinuesGesture(_settings, samplesFactory.Wawe());
 
             gesturesObserver.GestureSamplePlayed += GestureSamplePlayed;
 
