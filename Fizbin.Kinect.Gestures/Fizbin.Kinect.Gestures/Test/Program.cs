@@ -12,12 +12,12 @@ namespace Test
         static void Main(string[] args)
         {
             var samplesFactory = new SamplesFactory();
-            var kalimba = samplesFactory.GetMetronom();
+            var kalimba = samplesFactory.Wawe();
             var drum = samplesFactory.GetDrum();
             var guitar = samplesFactory.GetGitare();
 
             //kalimba.Play(1.0);
-            guitar.PlayNonStop(1);
+            kalimba.PlayNonStop(1);
 
             while (true)
             {

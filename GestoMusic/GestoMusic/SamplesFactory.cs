@@ -38,7 +38,7 @@ namespace GestoMusic
 
         public Sample Wawe()
         {
-            return new Sample(GetFullPath("guitar_for_wave.wav"));
+            return new Sample(GetFullPath("Kalimba.mp3"));
         }
 
         public Sample GetMetronom()

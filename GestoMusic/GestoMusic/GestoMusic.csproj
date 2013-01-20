@@ -75,7 +75,7 @@
     <Content Include="Samples\hhopen.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Samples\Kalimba.mp3">
+    <Content Include="Samples\new\Kalimba.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Samples\new\guitar_for_wave.wav">
@@ -90,7 +90,7 @@
     <Content Include="Samples\new\l_hand.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Samples\new\metronom_Queen.wav">
+    <Content Include="Samples\new\queen.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Samples\new\right leg.wav">

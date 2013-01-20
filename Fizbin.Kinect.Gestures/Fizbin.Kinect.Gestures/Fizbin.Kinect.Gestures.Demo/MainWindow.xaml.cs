@@ -91,7 +91,10 @@ namespace Fizbin.Kinect.Gestures.Demo
 
             // initialize the gesture recognizer
             gesturesObserver = new GesturesObserver();
+           
             var samplesFactory = new SamplesFactory();
+            _metro = samplesFactory.Wawe();
+            _metro.PlayNonStop();
             gesturesObserver.TrackDiscretGesture(GestureType.HammerLeft, samplesFactory.GetDrum());
             gesturesObserver.TrackDiscretGesture(GestureType.HammerRight, samplesFactory.GetDrum2());
             gesturesObserver.TrackDiscretGesture(GestureType.StepLeft, samplesFactory.GetDrum3());
@@ -151,6 +154,7 @@ namespace Fizbin.Kinect.Gestures.Demo
 
         private GesturesObserver gesturesObserver;
         private HandUpContiniousGestureSettings _settings;
+        private Sample _metro;
 
         public String Gesture
         {
