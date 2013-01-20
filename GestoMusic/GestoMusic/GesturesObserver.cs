@@ -69,5 +69,15 @@ namespace GestoMusic
                 }
             }
         }
+
+        public void Dispose()
+        {
+            foreach (var getsturesAction in _continuesGestures)
+            {
+                getsturesAction.Sample.Stop();
+            }
+            _continuesGestures.Clear();
+            _getsturesActions.Clear();
+        }
     }
 }

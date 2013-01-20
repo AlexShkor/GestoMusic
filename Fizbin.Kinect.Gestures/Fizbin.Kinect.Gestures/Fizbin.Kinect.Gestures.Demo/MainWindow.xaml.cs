@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using GestoMusic;
@@ -93,7 +94,7 @@ namespace Fizbin.Kinect.Gestures.Demo
             // initialize the gesture recognizer
             _samplesFactory = new SamplesFactory();
             _metro = _samplesFactory.GetMetronom();
-           // _metro.Play();
+             _metro.PlayNonStop();
 
 
             CreateObserver(_samplesFactory);
@@ -126,9 +127,9 @@ namespace Fizbin.Kinect.Gestures.Demo
 
         private void GestureSamplePlayed(object sender, GestureSampleArgs e)
         {
-            var log = e.GestureEventArgs.GestureType.ToString();
-            Logs.Add(log);
-            Gesture = log;
+            //var log = e.GestureEventArgs.GestureType.ToString();
+           // Logs.Add(log);
+            //Gesture = log;
         }
 
         /// <summary>
@@ -217,7 +218,7 @@ namespace Fizbin.Kinect.Gestures.Demo
 
                 // get the skeleton data
                 frame.CopySkeletonDataTo(skeletons);
-
+                var toRemove = _observers.Keys.ToList();
                 foreach (var skeleton in skeletons)
                 {
                     // skip the skeleton if it is not being tracked
@@ -225,7 +226,7 @@ namespace Fizbin.Kinect.Gestures.Demo
                         continue;
 
 
-                    Gesture = _settings.Pitch.ToString();
+                    //Gesture = _settings.Pitch.ToString();
                     //Gesture = Math.Abs(skeleton.Joints[JointType.WristRight].Position.Y - skeleton.Joints[JointType.WristLeft].Position.Y).ToString();
 
                     // update the gesture controller
@@ -234,6 +235,11 @@ namespace Fizbin.Kinect.Gestures.Demo
                         _observers[skeleton.TrackingId] = CreateObserver(_samplesFactory);
                     }
                     _observers[skeleton.TrackingId].UpdateAllGestures(skeleton);
+                    toRemove.Remove(skeleton.TrackingId);
+                }
+                foreach (var i in toRemove)
+                {
+                    _observers.Remove(i);
                 }
             }
         }

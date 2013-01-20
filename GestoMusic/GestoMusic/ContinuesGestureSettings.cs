@@ -49,6 +49,7 @@ namespace GestoMusic
 
         public Sample Sample
         {
+            get { return _continuesMusucPlayer.Sample; }
             set { _continuesMusucPlayer.Sample = value; }
         }
 

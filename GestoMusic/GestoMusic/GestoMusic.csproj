@@ -83,6 +83,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Samples\new\Kalimba.mp3" />
+    <Content Include="Samples\new\Kalimba.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Samples\new\left_leg.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

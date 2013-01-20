@@ -80,7 +80,10 @@ namespace GestoMusic
 
         public void Stop()
         {
-            _wave.Pause();
+            if (_wave != null)
+            {
+                _wave.Pause();
+            }
         }
     }
 }
