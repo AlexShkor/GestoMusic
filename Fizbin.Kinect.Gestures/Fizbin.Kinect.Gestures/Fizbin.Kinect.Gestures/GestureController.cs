@@ -72,6 +72,18 @@ namespace Fizbin.Kinect.Gestures
             downHandLeftSegments[0] = new HandDownLeftSegment1();
             downHandLeftSegments[1] = new HandDownLeftSegment2();
             AddGesture(GestureType.DownHandLeft, downHandLeftSegments);
+
+
+            //AddTwoSegmentGesture<HandDownLeftSegment1, HandDownLeftSegment2>(GestureType.DownHandLeft);
+        }
+
+        private void AddTwoSegmentGesture<TFirst,TSecond>(GestureType gestureType)
+            where TFirst : IRelativeGestureSegment, new() where TSecond : IRelativeGestureSegment, new()
+        {
+            IRelativeGestureSegment[] segments = new IRelativeGestureSegment[2];
+            segments[0] = new TFirst();
+            segments[1] = new TSecond();
+            AddGesture(gestureType, segments);
         }
 
         /// <summary>
